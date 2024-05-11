@@ -1,4 +1,3 @@
-# wsl
 ## Data Engineering with Distributed Environment for Data Analytics in the Microsoft Windows Subsystem for Linux (WSL)
 
 ### Summary and Tested Version
