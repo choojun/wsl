@@ -3,7 +3,7 @@
 
 ### Summary and Tested Version
 
-| Requirement\Section |  [E](wsl_hadoop)  |  [F](wsl_hdfs) |  [G](wsl_pyspark) | [H](wsl_pyspark_ml)  |  [I](wsl_pyspark_viz)  |  [J](wsl_kafka)  |  [K](wsl_hbase)  |  [L](wsl_happybase)  |  [M](wsl_hive) |
+| Requirement\Section |  [E](https://choojun.github.io/wsl_hadoop)  |  [F](https://choojun.github.io/wsl_hdfs) |  [G](https://choojun.github.io/wsl_pyspark) | [H](https://choojun.github.io/wsl_pyspark_ml)  |  [I](https://choojun.github.io/wsl_pyspark_viz)  |  [J](https://choojun.github.io/wsl_kafka)  |  [K](https://choojun.github.io/wsl_hbase)  |  [L](https://choojun.github.io/wsl_happybase)  |  [M](https://choojun.github.io/wsl_hive) |
 |---------------------|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|
 | Hadoop              | 3.3.6 | *1 | *1                  | *1 | *1 | *1     | *1                   | *1    | *1        |
 | Spark               |       |    | 3.5.1               | *1 | *1 |        | *1                   |       | *1        |
