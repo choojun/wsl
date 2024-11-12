@@ -25,3 +25,8 @@ Data engineering involves building systems to collect and utilize data, which su
 [P4.2](https://github.com/choojun/wsl/blob/main/P4.2.md) MongoDB
 
 [P4.3](https://github.com/choojun/wsl/blob/main/P4.3.md) Neo4J
+
+[P4.4](https://github.com/choojun/wsl/blob/main/P4.4.md) HBase
+
+
+
