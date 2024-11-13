@@ -33,3 +33,7 @@ Data engineering involves building systems to collect and utilize data, which su
 [P5](https://github.com/choojun/wsl/blob/main/P5.md) Kafka and Spark Structured Streaming
 
 [P6](https://github.com/choojun/wsl/blob/main/P6.md) MapReduce (MR)
+
+[P7.1](https://github.com/choojun/wsl/blob/main/P7.1.md) Basic Security
+
+[P7.2](https://github.com/choojun/wsl/blob/main/P7.2.md) Hadoop in Secure Mode
