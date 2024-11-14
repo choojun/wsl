@@ -1,6 +1,10 @@
 ## Data Engineering with the Microsoft Windows Subsystem for Linux (WSL)
 
-Data engineering involves building systems to collect and utilize data, which supports subsequent analysis and data science. Note that this website only contains the practical and WSL distro (https://github.com/choojun/wsl/releases). Read more required setup details at URL https://choojun.github.io/wsl
+Data engineering involves building systems to collect and utilize data, which supports subsequent analysis and data science. Note that this website only contains the practical activities and WSL distro (https://github.com/choojun/wsl/releases). 
+
+Read more required setup details at URLs
+  1. Setup from scratch - all section of https://choojun.github.io/wsl
+  2. Restore the pre-setup WSL distro - section D of https://choojun.github.io/wsl
 
 [P0](https://github.com/choojun/wsl/blob/main/P0.md) Things to do at the beginning of each practical
 
