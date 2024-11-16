@@ -4,7 +4,7 @@ Data engineering involves building systems to collect and utilize data, which su
 
 Read more required details at URLs
   1. Setup from the scratch - all sections of https://choojun.github.io/wsl
-  2. Restore from the pre-setup WSL distro - only section D of https://choojun.github.io/wsl
+  2. Restore from the pre-setup WSL distro - donwload the latest release from URL https://github.com/choojun/wsl/releases and perform those steps in the section D of https://choojun.github.io/wsl
 
 [P0](https://github.com/choojun/wsl/blob/main/P0.md) Things to do at the beginning of each practical
 
