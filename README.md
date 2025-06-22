@@ -18,13 +18,15 @@ Read more required details at URLs
 
 [P3.2](https://github.com/choojun/wsl/blob/main/P3.2.md) Spark DataFrames
 
-[P3.3](https://github.com/choojun/wsl/blob/main/P3.3.md) Spark SQL
+[P3.3](https://github.com/choojun/wsl/blob/main/P3.3.md) SparkSQL
 
-[P3.4](https://github.com/choojun/wsl/blob/main/P3.4.md) Spark Machine Learning
+[P3.4](https://github.com/choojun/wsl/blob/main/P3.4.md) Spark User-Defined Functions (UDFs)
 
-[P3.5](https://github.com/choojun/wsl/blob/main/P3.5.md) PySpark Exercises
+[P3.5](https://github.com/choojun/wsl/blob/main/P3.5.md) Spark 
 
-[P3.6](https://github.com/choojun/wsl/blob/main/P3.6.md) Hive
+[P3.6](https://github.com/choojun/wsl/blob/main/P3.6.md) PySpark Machine Learning
+
+[P3.7](https://github.com/choojun/wsl/blob/main/P3.7.md) PySpark and Hive
 
 [P4.1](https://github.com/choojun/wsl/blob/main/P4.1.md) Redis
 
