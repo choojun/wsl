@@ -22,7 +22,7 @@ Read more required details at URLs
 
 [P3.4](https://github.com/choojun/wsl/blob/main/P3.4.md) Spark User-Defined Functions (UDFs)
 
-[P3.5](https://github.com/choojun/wsl/blob/main/P3.5.md) Spark 
+[P3.5](https://github.com/choojun/wsl/blob/main/P3.5.md) Spark Shell
 
 [P3.6](https://github.com/choojun/wsl/blob/main/P3.6.md) PySpark Machine Learning
 
