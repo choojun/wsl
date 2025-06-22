@@ -16,7 +16,9 @@ Read more required details at URLs
 
 [P3.1](https://github.com/choojun/wsl/blob/main/P3.1.md) PySpark Resilient Distributed Datasets (RDDs)
 
-[P3.3](https://github.com/choojun/wsl/blob/main/P3.3.md) Spark DataFrames and Spark SQL
+[P3.2](https://github.com/choojun/wsl/blob/main/P3.2.md) Spark DataFrames
+
+[P3.3](https://github.com/choojun/wsl/blob/main/P3.3.md) Spark SQL
 
 [P3.4](https://github.com/choojun/wsl/blob/main/P3.4.md) Spark Machine Learning
 
