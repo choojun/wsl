@@ -24,7 +24,7 @@ Read more required details at URLs
 
 [P3.5](https://github.com/choojun/wsl/blob/main/P3.5.md) Spark DataFrames - Part II
 
-[P3.6](https://github.com/choojun/wsl/blob/main/P3.6.md) PySpark Machine Learning
+[P3.6](https://github.com/choojun/wsl/blob/main/P3.6.md) Spark Machine Learning
 
 [P3.7](https://github.com/choojun/wsl/blob/main/P3.7.md) PySpark and Hive
 
