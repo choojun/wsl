@@ -1,0 +1,5 @@
+customer_id,product_id,purchase_date
+C1,P1,2023-10-26
+C1,P2,2023-10-26
+C2,P1,2023-10-25
+C3,P3,2023-10-24
