@@ -128,7 +128,7 @@ hduser@MyPC:~$ rm ~/hive/lib/log4j-slf4j-impl-2.24.3.jar
 ~~~
 > We delete the file log4j-slf4j-impl-2.24.3.jar because the similar file is also presented in the Hadoop directory, and it gives error to us occasionally
 
-## M2. Install and Configure MySQL [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
+## M2. Install and Configure MySQL with JDBC Driver [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
 
 1. Install MySQL Server, and verify that the service is up and running:
 ~~~bash
@@ -136,6 +136,17 @@ hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ sudo apt update
 hduser@MyPC:~$ sudo apt install mysql-connector-j
 hduser@MyPC:~$ sudo systemctl status mysql
+~~~
+
+2. Download the MySQL JDBC Driver at URL https://dev.mysql.com/downloads/connector/j/ . Choose **Ubuntu Linux** from the Operating System dropdown, select our installed Ubuntu version 24.04, and download the .deb file (click "No thanks" to skip Oracle login). Assuming you have downloaded mysql-connector-j_26.10.0-1ubuntu24.04_all.deb , execute the following commands.
+~~~bash
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ sudo cp -r /mnt/c/de/mysql-connector-j_26.10.0-1ubuntu24.04_all.deb /home/hduser
+hduser@MyPC:~$ ls -al
+hduser@MyPC:~$ sudo chown hduser:hduser -R /home/hduser/mysql-connector-j_26.10.0-1ubuntu24.04_all.deb
+hduser@MyPC:~$ ls -al
+hduser@MyPC:~$ sudo dpkg mysql-connector-j_26.10.0-1ubuntu24.04_all.deb
+hduser@MyPC:~$ sudo apt install mysql-connector-j
 ~~~
 
 2. Access the MySQL Shell, and create a dedicated username (admin), password (password) and new database metastore_db before grant permissions to the user admin.
