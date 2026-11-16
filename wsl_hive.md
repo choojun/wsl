@@ -134,7 +134,6 @@ hduser@MyPC:~$ rm ~/hive/lib/log4j-slf4j-impl-2.24.3.jar
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ sudo apt update
-hduser@MyPC:~$ sudo apt install mysql-connector-j
 hduser@MyPC:~$ sudo systemctl status mysql
 ~~~
 
@@ -145,11 +144,11 @@ hduser@MyPC:~$ sudo cp -r /mnt/c/de/mysql-connector-j_26.10.0-1ubuntu24.04_all.d
 hduser@MyPC:~$ ls -al
 hduser@MyPC:~$ sudo chown hduser:hduser -R /home/hduser/mysql-connector-j_26.10.0-1ubuntu24.04_all.deb
 hduser@MyPC:~$ ls -al
-hduser@MyPC:~$ sudo dpkg mysql-connector-j_26.10.0-1ubuntu24.04_all.deb
+hduser@MyPC:~$ sudo dpkg -i mysql-connector-j_*.deb
 hduser@MyPC:~$ sudo apt install mysql-connector-j
 ~~~
 
-2. Access the MySQL Shell, and create a dedicated username (admin), password (password) and new database metastore_db before grant permissions to the user admin.
+3. Access the MySQL Shell, and create a dedicated username (admin), password (password) and new database metastore_db before grant permissions to the user admin.
 ~~~bash
 hduser@MyPC:~$ sudo mysql
 mysql> CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
@@ -159,7 +158,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> EXIT;
 ~~~
 
-3. Test the new created credentials before next step.
+4. Test the new created credentials before next step.
 ~~~bash
 hduser@MyPC:~$ mysql -u admin -p
 mysql> SHOW DATABASES;
@@ -168,7 +167,7 @@ mysql> show tables;
 mysql> EXIT;
 ~~~
 
-4. Configure the Hive to use MySQL by changing the following property values in file ~/hive/conf/hive-site.xml
+5. Configure the Hive to use MySQL by changing the following property values in file ~/hive/conf/hive-site.xml
 ~~~xml
     <property>
       <name>javax.jdo.option.ConnectionURL</name>
@@ -223,7 +222,7 @@ mysql> EXIT;
     </property>
 ~~~
 
-5. To allow Hive to connect to MySQL (metastore_db) through JDBC, add the following lines to the file ~/hadoop3/etc/hadoop/core-site.xml of your Hadoop installation. **Warning: Note that your Hive and other services SHOULD NOT running at this step.**
+6. To allow Hive to connect to MySQL (metastore_db) through JDBC, add the following lines to the file ~/hadoop3/etc/hadoop/core-site.xml of your Hadoop installation. **Warning: Note that your Hive and other services SHOULD NOT running at this step.**
  ~~~xml
  <configuration>
      <property>
@@ -238,7 +237,7 @@ mysql> EXIT;
  ~~~
 
 
-6. To allow PySpark to connect to hive cluster, duplicate (by overwriting) the following files to destination Spark
+7. To allow PySpark to connect to hive cluster, duplicate (by overwriting) the following files to destination Spark
 ~~~bash
 hduser@MyPC:~$ cp -f ~/hadoop3/etc/hadoop/core-site.xml ~/spark/conf/
 hduser@MyPC:~$ cp -f ~/hadoop3/etc/hadoop/hdfs-site.xml ~/spark/conf/
@@ -249,12 +248,12 @@ hduser@MyPC:~$ cp -f /usr/share/java/mysql-connector-j-26.10.0.jar ~/hive/lib/
 ~~~
 > **Attention**: ensure Hadoop, Spark, HBase and Hive are successfully installed **BEFORE** proceeding with this step. **You need to redo this step if ANY CHANGES on the involved their files in nearly future.**
 
-7. Edit the file ~/.bashrc with the the following lines 
+8. Edit the file ~/.bashrc with the the following lines 
 ~~~bash
 export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-j-26.10.0.jar
 ~~~
 
-8. Use existing session (named as **session 1**) to ensure the MySQL is running and start **HDFS**, **YARN**, **Kafka**, **HBase** and **Thrift** services.
+9. Use existing session (named as **session 1**) to ensure the MySQL is running and start **HDFS**, **YARN**, **Kafka**, **HBase** and **Thrift** services.
 > **Tips**: Note that a total of eleven (11) services can be observed eventually.
 > ~~~bash
 > hduser@MyPC:~$ sudo systemctl status mysql
@@ -280,7 +279,7 @@ export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-j-26.10.0.jar
 > hduser@MyPC:~$
 > ~~~
 
-9. Use the **session 1** to run the following command to initialize MySQL as the Metastore database for Hive. It might take a few minutes. Please be patient while you wait for its completion
+10. Use the **session 1** to run the following command to initialize MySQL as the Metastore database for Hive. It might take a few minutes. Please be patient while you wait for its completion
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ java -cp home/hduser/hive/lib/*:/home/hduser/spark/jars/* org.apache.hive.beeline.HiveSchemaTool -initSchemaTo 4.1.0 -dbType mysql
