@@ -139,7 +139,7 @@ hduser@MyPC:~$ sudo systemctl status mysql
 ~~~
 > Exit the status checking using Ctrl-c.
 
-2. Download the MySQL JDBC Driver at URL https://dev.mysql.com/downloads/connector/j/ . Choose **Ubuntu Linux** from the Operating System dropdown, select our installed Ubuntu version 24.04, and download the .deb file (click "No thanks" to skip Oracle login). Assuming you have downloaded mysql-connector-j_26.10.0-1ubuntu24.04_all.deb , execute the following commands.
+2. Download the MySQL JDBC Driver at URL https://dev.mysql.com/downloads/connector/j/ . Choose **Ubuntu Linux** from the Operating System dropdown, select our installed Ubuntu version **24.04**, and download the .deb file (click "No thanks" to skip Oracle login). Assuming you have downloaded **mysql-connector-j_26.10.0-1ubuntu24.04_all.deb** , execute the following commands.
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ sudo cp -r /mnt/c/de/mysql-connector-j_26.10.0-1ubuntu24.04_all.deb /home/hduser
@@ -150,7 +150,7 @@ hduser@MyPC:~$ sudo dpkg -i mysql-connector-j_*.deb
 hduser@MyPC:~$ sudo apt install mysql-connector-j
 ~~~
 
-3. Access the MySQL Shell, and create a dedicated username (admin), password (password) and new database metastore_db before grant permissions to the user admin.
+3. Access the MySQL Shell, and create a dedicated username (**admin**), password (**password**) and new database metastore_db before grant permissions to the user **admin**.
 ~~~bash
 hduser@MyPC:~$ sudo mysql
 mysql> CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
