@@ -137,6 +137,7 @@ hduser@MyPC:~$ sudo apt update
 hduser@MyPC:~$ sudo apt install mysql-server
 hduser@MyPC:~$ sudo systemctl status mysql
 ~~~
+> Exit the status checking using Ctrl-c.
 
 2. Download the MySQL JDBC Driver at URL https://dev.mysql.com/downloads/connector/j/ . Choose **Ubuntu Linux** from the Operating System dropdown, select our installed Ubuntu version 24.04, and download the .deb file (click "No thanks" to skip Oracle login). Assuming you have downloaded mysql-connector-j_26.10.0-1ubuntu24.04_all.deb , execute the following commands.
 ~~~bash
