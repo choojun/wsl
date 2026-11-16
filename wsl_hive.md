@@ -134,6 +134,7 @@ hduser@MyPC:~$ rm ~/hive/lib/log4j-slf4j-impl-2.24.3.jar
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ sudo apt update
+hduser@MyPC:~$ sudo apt install mysql-server
 hduser@MyPC:~$ sudo systemctl status mysql
 ~~~
 
