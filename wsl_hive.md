@@ -370,7 +370,30 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$TEZ_CONF_DIR:$TEZ_JARS/*:$TEZ_JARS/li
    </property>
 ~~~
 
+6. Download, extract the Apache Tomcat and locate the required war for Tez.
+~~~bash
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ wget https://archive.apache.org/dist/tomcat/tomcat-11/v11.0.29/bin/apache-tomcat-11.0.29.tar.gz
+hduser@MyPC:~$ tar -xzf apache-tomcat-11.0.29.tar.gz
+hduser@MyPC:~$ mv apache-tomcat-11.0.29 tomcat
+hduser@MyPC:~$ chown -R hduser:hduser ~/tomcat
+hduser@MyPC:~$ chmod -R g+r ~/tomcat
+hduser@MyPC:~$ chmod g+x ~/tomcat
+hduser@MyPC:~$ cd ~/tomcat/webapps
+hduser@MyPC:~$ wget https://repository.apache.org/content/repositories/releases/org/apache/tez/tez-ui/0.10.5/tez-ui-0.10.5.war
+hduser@MyPC:~$ cd ~
+~~~
 
+6. Start the Apache Tomcat.
+~~~bash
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ cd tomcat
+hduser@MyPC:~$ bin/startup.sh
+hduser@MyPC:~$ jps
+~~~
+> Note that a total of twelve (12) services, i.e. Bootstrap is newly added, can be observed eventually.
+>
+> To stop the Tomcat, issue command bin/shutdown.sh.
 
 ## M4. Running HiveServer2 and Beeline [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
 
@@ -394,6 +417,8 @@ hduser@MyPC:~/hive/lib$ cd ~/hive
 hduser@MyPC:~/hive$ bin/hiveserver2
 ~~~
 > To stop the Hive, use Ctrl-C.
+>
+> To access the WebUI, visit http://localhost:10002/
 
 5. Use a new shell **session 2**. Ensure that one additional service from HiveServer2 (i.e., the RunJar process) is visible when using the jps command before launching and logging into the Beeline shell using your MySQL credentials. 
 ~~~bash
@@ -444,7 +469,7 @@ Transaction isolation: TRANSACTION_REPEATABLE_READ
 0: jdbc:hive2://> DROP DATABASE choojunhive;
 0: jdbc:hive2://> show databases;
 ~~~
-> To stop the Beeline, use either command !q (after login) or Ctrl-c (before login).
+> c
 > 
 > Note that we always need to terminate the running RunJar service/s (if any) BEFORE re-run the HiveServer2.
 
