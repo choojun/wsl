@@ -173,7 +173,7 @@ mysql> EXIT;
 ~~~xml
     <property>
       <name>javax.jdo.option.ConnectionURL</name>
-      <value>jdbc:mysql://localhost:3306/metastore_db</value>
+      <value>jdbc:mysql://localhost:3306/metastore_db?createDatabaseIfNotExist=true</value>
       <description>JDBC connect string for a JDBC metastore</description>
     </property>
     <property>
