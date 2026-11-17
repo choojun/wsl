@@ -447,10 +447,6 @@ Transaction isolation: TRANSACTION_REPEATABLE_READ
 > To stop the Beeline, use either command !q (after login) or Ctrl-c (before login).
 > 
 > Note that we always need to terminate the running RunJar service/s (if any) BEFORE re-run the HiveServer2.
-> 
-> xx try hdfs dfs -chmod -R 775 /user/hduser/warehouse
-> Note that our the table was defined with the EXTERNAL (by default), Hive only removes the table's schema and metadata from the Hive Metastore (i.e., in Derby). The underlying data files in HDFS (i.e., at location /user/hduser/warehouse/choojunhive/employee) are deliberately left intact to prevent accidental data loss. If you recreate an EXTERNAL table pointing to the same path (by default), the old data will reappear.
-> Manual remedy: Delete the HDFS directory (i.e., /user/hduser/warehouse/choojunhive/employee) manually after issue the command of drop table.
 
 5. Try out the Guided Tutorials as follows
    * https://cwiki.apache.org/confluence/display/hive/tutorial
