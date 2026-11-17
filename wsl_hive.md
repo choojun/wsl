@@ -351,23 +351,23 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$TEZ_CONF_DIR:$TEZ_JARS/*:$TEZ_JARS/li
        <name>hive.execution.engine</name>
        <value>tez</value>
    </property>
+   <property>
+       <name>hive.tez.container.size</name>
+       <value>4096</value>
+   </property>
+   <property>
+       <name>hive.tez.java.opts</name>
+       <value>-Xmx3072m</value>
+   </property>
+   <property>
+       <name>hive.tez.cpu.vcores</name>
+       <value>1</value>
+   </property>
 
    <property>
-        <name>tez.lib.uris</name>
-        <value>hdfs:///user/hduser/tez/share/tez.tar.gz</value>
-    </property>
-    <property>
-        <name>hive.tez.contaiiner.size</name>
-        <value>4096</value>
-    </property>
-    <property>
-        <name>hive.tez.java.opts</name>
-        <value>-Xmx3072m</value>
-    </property>
-    <property>
-        <name>hive.tez.cpu.vcores</name>
-        <value>1</value>
-    </property>
+       <name>tez.lib.uris</name>
+       <value>hdfs:///user/hduser/tez/share/tez.tar.gz</value>
+   </property>
 ~~~
 
 
