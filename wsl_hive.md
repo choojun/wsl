@@ -250,10 +250,11 @@ hduser@MyPC:~$ cp -f /usr/share/java/mysql-connector-j-26.10.0.jar ~/hive/lib/
 ~~~
 > **Attention**: ensure Hadoop, Spark, HBase and Hive are successfully installed **BEFORE** proceeding with this step. **You need to redo this step if ANY CHANGES on the involved their files in nearly future.**
 
-8. Edit the file ~/.bashrc with the the following lines 
+8. Edit the file ~/.bashrc with the the following lines
 ~~~bash
 export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-j-26.10.0.jar
 ~~~
+> Remember to issue source ~/.bashrc after saving the file.
 
 9. Use existing session (named as **session 1**) to ensure the MySQL is running and start **HDFS**, **YARN**, **Kafka**, **HBase** and **Thrift** services.
 > **Tips**: Note that a total of eleven (11) services can be observed eventually.
