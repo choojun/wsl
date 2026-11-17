@@ -334,16 +334,25 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$TEZ_CONF_DIR:$TEZ_JARS/*:$TEZ_JARS/li
         <name>tez.use.cluster.hadoop-libs</name>
         <value>true</value>
     </property>
+    <property>
+        <name>tez.history.logging.service.class</name>
+        <value>org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService</value>
+    </property>
+    <property>
+        <name>tez.tez-ui.history-url.base</name>
+        <value>http://localhost:9999/tez-ui/</value>
+    </property>
 </configuration>
 ~~~
 
 5. Edit the file ~/hive/conf/hive-site.xml
 ~~~bash
-  <property>
-    <name>hive.execution.engine</name>
-    <value>tez</value>
-  </property>
-    <property>
+   <property>
+       <name>hive.execution.engine</name>
+       <value>tez</value>
+   </property>
+
+   <property>
         <name>tez.lib.uris</name>
         <value>hdfs:///user/hduser/tez/share/tez.tar.gz</value>
     </property>
