@@ -290,7 +290,7 @@ hduser@MyPC:~$ java -cp home/hduser/hive/lib/*:/home/hduser/spark/jars/* org.apa
 > **Attention**: Note that in the setup of Hive 4.1.0, you may have corrupted characters in file ~/hive/conf/hive-site.xml, which is inherited from its template (duplicated in Section M1), particularlly under the description of 'hive.txn.xlock.iow'. Just delete it if there is an error, and re-run above command.
 
 
-## M3. Install and Configure Tez [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
+## M3. Install and Configure Tez with HTTPD [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
 
 1. Use the **session 1** to install and configure Tez.
 ~~~bash
