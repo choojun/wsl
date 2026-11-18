@@ -49,7 +49,9 @@ hduser@MyPC:~/hadoop3$ jps
 
 <details open>
 <summary><strong>deploy.sh</strong></summary>
-
+~~~bash
+hduse
+~~~
 
 > [!NOTE]
 > **setup.sh**
