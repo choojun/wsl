@@ -33,6 +33,9 @@ If you are using Apple machines (MacBooks and iMacs with Intel/Apple Silicon pro
 Assuming you have successfully set up all the required frameworks and software listed above, run the following commands:
 
 ### 1. To start all services, e.g. at the beginning of every practical.
+
+> [!NOTE]
+> **Session 1**
 ~~~bash
 tarumt@MyPC:~$ su - hduser
 hduser@MyPC:~$ cd ~
@@ -46,11 +49,6 @@ hduser@MyPC:~/hadoop3$ jps
 > DFS - http://localhost:9870 <br>
 > YARN - http://localhost:8088/
 
-
-
-
-> [!NOTE]
-> **Session 2**
 ~~~bash
 hduser@MyPC:~/hadoop3$ bin/yarn --daemon start timelineserver
 hduser@MyPC:~/hadoop3$ jps
@@ -63,6 +61,31 @@ hduser@MyPC:~$
 > Tez web UI for Hive - http://localhost/tez-ui/
 
 ~~~bash
+hduser@MyPC:~$ cd ~/kafka
+hduser@MyPC:~/kafka$ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
+hduser@MyPC:~/kafka$ bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
+hduser@MyPC:~/kafka$ bin/kafka-server-start.sh config/server.properties
+~~~
+
+
+> [!NOTE]
+> **Session 2**
+
+
+> Start the ZooKeeper, Hbase and Thrift services.
+~~~bash
+hduser@MyPC:~$ cd ~/hbase
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh start zookeeper
+hduser@MyPC:~$ ~/hbase/bin/start-hbase.sh
+hduser@MyPC:~$ jps
+hduser@MyPC:~/hbase$ bin/hbase thrift start -p 9090 &
+hduser@MyPC:~/hbase$ 
+hduser@MyPC:~/hbase$ jps
+~~~
+
+> Start the HiveServer2
+~~~bash
 hduser@MyPC:~$ cd ~/hive
 hduser@MyPC:~/hive$ bin/hiveserver2
 ~~~
@@ -73,11 +96,46 @@ hduser@MyPC:~/hive$ bin/hiveserver2
 
 
 ### 2. To stop all services, e.g. at the end of every practical.
+
+> [!NOTE]
+> **Session 2**
+> Use Ctrl-c to stop HiveServer2
 ~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ 
+hduser@MyPC:~/hive$ jps
+hduser@MyPC:~/hive$ cd ~
+hduser@MyPC:~$
 ~~~
 
+> Stop the Thrift service using the identified pid
+~~~bash
+hduser@MyPC:~$ ps -aux | grep 9090
+hduser    9441  1.5  3.1 2928716 152960 pts/2  Sl   07:46   0:05
+hduser@MyPC:~$ kill 9441
+hduser@MyPC:~$ jps
+~~~
+
+> Stop the Hbase and ZooKeeper services.
+~~~bash
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ ~/hbase/bin/stop-hbase.sh
+hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh stop zookeeper
+hduser@MyPC:~$ jps
+~~~
+
+
+> [!NOTE]
+> **Session 1**
+> Use Ctrl-c to stop Kafka
+~~~bash
+hduser@MyPC:~$ 
+hduser@MyPC:~$ jps
+~~~
+> Optionally, use the following command to stop Kafka in Session 2.
+> ~~~bash
+> hduser@MyPC:~$ cd ~/kafka
+> hduser@MyPC:~$ ~/kafka/bin/kafka-server-stop.sh
+> hduser@MyPC:~$ jps
+> ~~~
 
 ~~~bash
 hduser@MyPC:~$ sudo systemctl stop apache2
