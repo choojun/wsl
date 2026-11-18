@@ -371,8 +371,6 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$TEZ_CONF_DIR:$TEZ_JARS/*:$TEZ_JARS/li
    </property>
 ~~~
 
-With Apache HTTPD here
-========
 6. Install Apache HTTPD, stop the HTTPD service, and extract the Tez UI WAR file from your target distribution.
 ~~~bash
 hduser@MyPC:~$ cd ~
