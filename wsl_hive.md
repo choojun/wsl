@@ -340,10 +340,11 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$TEZ_CONF_DIR:$TEZ_JARS/*:$TEZ_JARS/li
     </property>
     <property>
         <name>tez.tez-ui.history-url.base</name>
-        <value>http://localhost:9999/tez-ui/</value>
+        <value>http://localhost/tez-ui/</value>
     </property>
 </configuration>
 ~~~
+> Note that HTTPD runs on the default HTTP port 80, omit :80 from tez.tez-ui.history-url.base.
 
 5. Edit the file ~/hive/conf/hive-site.xml
 ~~~bash
@@ -384,6 +385,57 @@ hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ wget https://repository.apache.org/content/repositories/releases/org/apache/tez/tez-ui/0.10.5/tez-ui-0.10.5.war
 hduser@MyPC:~$ sudo unzip ~/tez-ui-0.10.5.war -d /var/www/html/tez-ui
 ~~~
+
+7. To enable the Tez Web UI to fetch JSON data directly from YARN ports (8188 and 8088) while viewing the page served by HTTPD (80). We need to enable CORS across Hadoop's HTTP services. Add the CORS filter initializer to ~/hadoop3/etc/hadoop/core-site.xml across our Hadoop cluster nodes.
+~~~bash
+    <property>
+        <name>hadoop.http.filter.initializers</name>
+        <value>org.apache.hadoop.security.HttpCrossOriginFilterInitializer</value>
+    </property>
+    <property>
+        <name>hadoop.http.cross-origin.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hadoop.http.cross-origin.allowed-origins</name>
+        <value>*</value>
+    </property>
+~~~
+
+8. To allow PySpark to connect to hive cluster, duplicate (by overwriting) ~/hadoop3/etc/hadoop/core-site.xml to destination Spark
+~~~bash
+hduser@MyPC:~$ cp -f ~/hadoop3/etc/hadoop/core-site.xml ~/spark/conf/
+~~~
+
+9. Enable the Timeline Server and YARN CORS in ~/hadoop3/etc/hadoop/yarn-site.xml
+~~~bash
+    <property>
+        <name>yarn.timeline-service.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>yarn.timeline-service.hostname</name>
+        <value><ats-host></value>
+    </property>
+    <property>
+        <name>yarn.timeline-service.webapp.address</name>
+        <value><ats-host>:8188</value>
+    </property>
+    <property>
+        <name>yarn.timeline-service.http-cross-origin.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.webapp.cross-origin.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.system-metrics-publisher.enabled</name>
+        <value>true</value>
+    </property>
+~~~
+
+10. 
 
 
 
