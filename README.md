@@ -83,6 +83,8 @@ hduser@MyPC:~/hbase$ bin/hbase thrift start -p 9090 &
 hduser@MyPC:~/hbase$ 
 hduser@MyPC:~/hbase$ jps
 ~~~
+> Self-check: <br>
+> HBase web UI - http://localhost:16010
 
 > Start the HiveServer2
 ~~~bash
