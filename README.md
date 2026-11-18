@@ -42,10 +42,8 @@ hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
 hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
 hduser@MyPC:~/hadoop3$ jps
 ~~~
-> Self-check:
-> 
-> DFS - http://localhost:9870
->
+> Self-check: <br>
+> DFS - http://localhost:9870 <br>
 > YARN - http://localhost:8088/
 
 #### 2. To stop all services, e.g. at the end of future practical.
