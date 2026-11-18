@@ -493,7 +493,7 @@ hduser@MyPC:~/hive$ bin/hiveserver2
 ~~~
 > To stop the Hive, use Ctrl-C.
 >
-> To access the web UI, visit http://localhost:10002/
+> To access the HiveServer2 web UI, visit http://localhost:10002/
 
 5. Use a new shell **session 2**. Ensure that one additional service from HiveServer2 (i.e., the RunJar process) is visible when using the jps command before launching and logging into the Beeline shell using your MySQL credentials. 
 ~~~bash
