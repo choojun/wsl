@@ -415,11 +415,11 @@ hduser@MyPC:~$ cp -f ~/hadoop3/etc/hadoop/core-site.xml ~/spark/conf/
     </property>
     <property>
         <name>yarn.timeline-service.hostname</name>
-        <value><ats-host></value>
+        <value>localhost</value>
     </property>
     <property>
         <name>yarn.timeline-service.webapp.address</name>
-        <value><ats-host>:8188</value>
+        <value>localhost:8188</value>
     </property>
     <property>
         <name>yarn.timeline-service.http-cross-origin.enabled</name>
@@ -435,37 +435,32 @@ hduser@MyPC:~$ cp -f ~/hadoop3/etc/hadoop/core-site.xml ~/spark/conf/
     </property>
 ~~~
 
-10. 
-
-
-
-With Tomcat here
-========
-
-6. Download, extract the Apache Tomcat and locate the required war for Tez.
+10. Point Tez UI to YARN Endpoints by editing /var/www/html/tez-ui/config/configs.js. Uncomment and update timeline and rm inside ENV.hosts to use plain http.
 ~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ wget https://archive.apache.org/dist/tomcat/tomcat-11/v11.0.29/bin/apache-tomcat-11.0.29.tar.gz
-hduser@MyPC:~$ tar -xzf apache-tomcat-11.0.29.tar.gz
-hduser@MyPC:~$ mv apache-tomcat-11.0.29 tomcat
-hduser@MyPC:~$ chown -R hduser:hduser ~/tomcat
-hduser@MyPC:~$ chmod -R g+r ~/tomcat
-hduser@MyPC:~$ chmod g+x ~/tomcat
-hduser@MyPC:~$ cd ~/tomcat/webapps
-hduser@MyPC:~$ wget https://repository.apache.org/content/repositories/releases/org/apache/tez/tez-ui/0.10.5/tez-ui-0.10.5.war
-hduser@MyPC:~$ cd ~
+sudo nano /var/www/html/tez-ui/config/configs.js
 ~~~
 
-6. Start the Apache Tomcat.
+11. Start Services and enable HTTPD on localhost
 ~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ cd tomcat
-hduser@MyPC:~$ bin/startup.sh
-hduser@MyPC:~$ jps
+hduser@MyPC:~$
+hduser@MyPC:~$ cd ~/hadoop3
+hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
+hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
+hduser@MyPC:~/hadoop3$ jps
+hduser@MyPC:~/hadoop3$ bin/yarn --daemon start timelineserver
+sudo systemctl enable --now apache2
+hduser@MyPC:~$ sudo systemctl start apache2
+hduser@MyPC:~$ sudo systemctl status apache2
+hduser@MyPC:~/hadoop3$ cd ~
 ~~~
-> Note that a total of twelve (12) services, i.e. Bootstrap is newly added, can be observed eventually.
->
-> To stop the Tomcat, issue command bin/shutdown.sh.
+> To stop the timelineserver (also known as ApplicationHistoryServer from jps), using command
+> ~~~bash
+> hduser@MyPC:~/hadoop3$ bin/yarn --daemon stop timelineserver
+> ~~~
+
+12. Open the Tez UI in your browser at http://localhost/tez-ui/
+
+
 
 ## M4. Running HiveServer2 and Beeline [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
 
