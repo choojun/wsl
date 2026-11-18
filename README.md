@@ -43,7 +43,7 @@ hduser@MyPC:~/hadoop3$ jps
 ~~~
 
 #### To stop all services at the end of future practical
-~~~~bash
+~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ cd hadoop3
 hduser@MyPC:~/hadoop3$ sbin/stop-yarn.sh
@@ -52,6 +52,7 @@ hduser@MyPC:~/hadoop3$ jps
 hduser@MyPC:~/hadoop3$ cd ~
 hduser@MyPC:~$ exit
 ~~~
+
 -----------------------------------------------------------
 
 
