@@ -2,9 +2,9 @@
 
 # M. Hive with Tez and MySQL [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
 
-Let's recap what we have learned so far. We have completed the setup for both [Apache Spark](wsl_spark.md) and [Hadoop MapReduce](wsl_hdfs.md), which are two distinct Big Data frameworks. The former is a high-performance in-memory data-processing engine, while the latter is a mature batch-processing platform operating at petabyte scale. Note that **Apache Hive** and [Apache HBase](wsl_hbase.md) serve very different purposes. Apache Hive is a distributed data warehouse system providing a SQL-like interface for MapReduce jobs, whereas [Apache HBase](wsl_hbase.md) is a distributed NoSQL key-value database running on [Hadoop](wsl_hadoop.md).
+Let's recap what we have learned so far. We have completed the setup for both [Apache Spark](wsl_spark.md) and [Hadoop MapReduce](wsl_hdfs.md), which are two distinct Big Data frameworks. The former is a high-performance in-memory data-processing engine, while the latter is a mature batch-processing platform operating at petabyte scale. Note that **Apache Hive** and [Apache HBase](wsl_hbase.md) serve very different purposes. Hive is a distributed data warehouse system providing a SQL-like interface for MapReduce jobs, whereas [HBase](wsl_hbase.md) is a distributed NoSQL key-value database running on [Hadoop](wsl_hadoop.md).
 
-Specifically, Apache Hive is a distributed, fault-tolerant data warehouse system enabling large-scale analytics. It facilitates reading, writing, and managing petabytes of data residing in distributed storage using SQL. Read more on Hive at URL https://cwiki.apache.org/confluence/display/Hive/GettingStarted , https://cwiki.apache.org/confluence/display/Hive/Home , https://hive.apache.org/docs/latest/introduction-to-apache-hive/ , https://hive.apache.org/docs/latest/user/hiveserver2-overview/ ,  https://hive.apache.org/development/designdocs/design/ , https://hive.apache.org/docs/latest/language/languagemanual/ , https://hive.apache.org/docs/latest/user/hive-transactions/ , https://hive.apache.org/docs/latest/language/languagemanual-ddl/ , https://hive.apache.org/docs/latest/admin/replication/
+Specifically, Hive is a distributed, fault-tolerant data warehouse system enabling large-scale analytics. It facilitates reading, writing, and managing petabytes of data residing in distributed storage using SQL. Read more on Hive at URL https://cwiki.apache.org/confluence/display/Hive/GettingStarted , https://cwiki.apache.org/confluence/display/Hive/Home , https://hive.apache.org/docs/latest/introduction-to-apache-hive/ , https://hive.apache.org/docs/latest/user/hiveserver2-overview/ ,  https://hive.apache.org/development/designdocs/design/ , https://hive.apache.org/docs/latest/language/languagemanual/ , https://hive.apache.org/docs/latest/user/hive-transactions/ , https://hive.apache.org/docs/latest/language/languagemanual-ddl/ , https://hive.apache.org/docs/latest/admin/replication/
 
 ## M1. Install and Configure Hive [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
 
@@ -371,7 +371,8 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$TEZ_CONF_DIR:$TEZ_JARS/*:$TEZ_JARS/li
    </property>
 ~~~
 
-6. Install Apache HTTPD, stop the HTTPD service, and extract the Tez UI WAR file from your target distribution.
+6. Apache HTTPD (more formally known as the Apache HTTP Server) is a free, open-source, cross-platform web server software. 
+Install HTTPD, stop the HTTPD service, and extract the Tez UI WAR file from your target distribution.
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ sudo systemctl status apache2
