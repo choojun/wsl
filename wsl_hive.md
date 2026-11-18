@@ -447,7 +447,8 @@ hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
 hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
 hduser@MyPC:~/hadoop3$ jps
 hduser@MyPC:~/hadoop3$ bin/yarn --daemon start timelineserver
-sudo systemctl enable --now apache2
+hduser@MyPC:~/hadoop3$ jps
+hduser@MyPC:~/hadoop3$ sudo systemctl enable --now apache2
 hduser@MyPC:~$ sudo systemctl start apache2
 hduser@MyPC:~$ sudo systemctl status apache2
 hduser@MyPC:~/hadoop3$ cd ~
