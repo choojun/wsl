@@ -434,7 +434,7 @@ hduser@MyPC:~$ cp -f ~/hadoop3/etc/hadoop/core-site.xml ~/spark/conf/
     </property>
 ~~~
 
-10. Point Tez UI to YARN Endpoints by editing /var/www/html/tez-ui/config/configs.js. Uncomment and update timeline and rm inside ENV.hosts to use plain http.
+10. Point Tez web UI to YARN Endpoints by editing /var/www/html/tez-ui/config/configs.js. Uncomment and update timeline and rm inside ENV.hosts to use plain http.
 ~~~bash
 sudo nano /var/www/html/tez-ui/config/configs.js
 ~~~
