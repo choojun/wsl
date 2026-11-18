@@ -49,7 +49,7 @@ hduser@MyPC:~/hadoop3$ jps
 
 
 
-> [!Session 2]
+> [!Note]
 ~~~bash
 hduser@MyPC:~/hadoop3$ bin/yarn --daemon start timelineserver
 hduser@MyPC:~/hadoop3$ jps
