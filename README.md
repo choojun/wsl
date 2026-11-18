@@ -47,7 +47,8 @@ hduser@MyPC:~/hadoop3$ jps
 > YARN - http://localhost:8088/
 
 
-
+<details open>
+<summary><strong>deploy.sh</strong></summary>
 
 
 > [!NOTE]
