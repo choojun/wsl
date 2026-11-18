@@ -29,9 +29,10 @@ If you are using Apple machines (MacBooks and iMacs with Intel/Apple Silicon pro
 > **Optional**: To restore from the pre-setup WSL distro, download the required release from the URL https://github.com/choojun/wsl/releases and follow the steps in Section D after identifying your Ubuntu version.
 
 -----------------------------------------------------------
-### Hints: 
 
-#### To start all services at the beginning of future practical
+Assuming you have successfully set up all the required frameworks and software listed above, run the following commands:
+
+#### 1. To start all services, e.g. at the beginning of future practical.
 ~~~bash
 tarumt@MyPC:~$ su - hduser
 hduser@MyPC:~$ cd ~
@@ -41,8 +42,13 @@ hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
 hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
 hduser@MyPC:~/hadoop3$ jps
 ~~~
+> Self-check:
+> 
+> DFS - http://localhost:9870
+>
+> YARN - http://localhost:8088/
 
-#### To stop all services at the end of future practical
+#### 2. To stop all services, e.g. at the end of future practical.
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ cd hadoop3
