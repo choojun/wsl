@@ -46,21 +46,39 @@ hduser@MyPC:~/hadoop3$ jps
 > DFS - http://localhost:9870 <br>
 > YARN - http://localhost:8088/
 
+
+
+
+
+> [!NOTE]
+> **setup.sh**
 ~~~bash
 hduser@MyPC:~/hadoop3$ bin/yarn --daemon start timelineserver
 hduser@MyPC:~/hadoop3$ jps
+hduser@MyPC:~/hadoop3$ cd ~
 hduser@MyPC:~$ sudo systemctl start apache2
 hduser@MyPC:~$ sudo systemctl status apache2
-hduser@MyPC:~/hadoop3$ cd ~
+hduser@MyPC:~$
 ~~~
 > Self-check: <br>
 > Tez web UI for Hive - http://localhost/tez-ui/
+
+~~~bash
+hduser@MyPC:~$ cd ~/hive
+hduser@MyPC:~/hive$ bin/hiveserver2
+~~~
+> Self-check: <br>
+> HiveServer2 web UI - http://localhost:10002
+
+
+
 
 ### 2. To stop all services, e.g. at the end of every practical.
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ 
 ~~~
+
 
 ~~~bash
 hduser@MyPC:~$ sudo systemctl stop apache2
