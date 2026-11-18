@@ -32,7 +32,7 @@ If you are using Apple machines (MacBooks and iMacs with Intel/Apple Silicon pro
 
 Assuming you have successfully set up all the required frameworks and software listed above, run the following commands:
 
-#### 1. To start all services, e.g. at the beginning of future practical.
+### 1. To start all services, e.g. at the beginning of future practical.
 ~~~bash
 tarumt@MyPC:~$ su - hduser
 hduser@MyPC:~$ cd ~
@@ -46,7 +46,7 @@ hduser@MyPC:~/hadoop3$ jps
 > DFS - http://localhost:9870 <br>
 > YARN - http://localhost:8088/
 
-#### 2. To stop all services, e.g. at the end of future practical.
+### 2. To stop all services, e.g. at the end of future practical.
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ cd hadoop3
