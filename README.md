@@ -71,8 +71,7 @@ hduser@MyPC:~/kafka$ bin/kafka-server-start.sh config/server.properties
 > [!NOTE]
 > **Session 2**
 
-
-> Start the ZooKeeper, Hbase and Thrift services.
+Start the ZooKeeper, Hbase and Thrift services.
 ~~~bash
 hduser@MyPC:~$ cd ~/hbase
 hduser@MyPC:~$ cd ~
@@ -86,7 +85,7 @@ hduser@MyPC:~/hbase$ jps
 > Self-check: <br>
 > HBase web UI - http://localhost:16010
 
-> Start the HiveServer2
+Start the HiveServer2
 ~~~bash
 hduser@MyPC:~$ cd ~/hive
 hduser@MyPC:~/hive$ bin/hiveserver2
@@ -101,14 +100,15 @@ hduser@MyPC:~/hive$ bin/hiveserver2
 
 > [!NOTE]
 > **Session 2**
-> Use Ctrl-c to stop HiveServer2
+
+Use Ctrl-c to stop HiveServer2
 ~~~bash
 hduser@MyPC:~/hive$ jps
 hduser@MyPC:~/hive$ cd ~
 hduser@MyPC:~$
 ~~~
 
-> Stop the Thrift service using the identified pid
+Stop the Thrift service using the identified pid
 ~~~bash
 hduser@MyPC:~$ ps -aux | grep 9090
 hduser    9441  1.5  3.1 2928716 152960 pts/2  Sl   07:46   0:05
@@ -116,7 +116,7 @@ hduser@MyPC:~$ kill 9441
 hduser@MyPC:~$ jps
 ~~~
 
-> Stop the Hbase and ZooKeeper services.
+Stop the Hbase and ZooKeeper services.
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ ~/hbase/bin/stop-hbase.sh
@@ -127,7 +127,7 @@ hduser@MyPC:~$ jps
 
 > [!NOTE]
 > **Session 1**
-> Use Ctrl-c to stop Kafka
+Use Ctrl-c to stop Kafka
 ~~~bash
 hduser@MyPC:~$ 
 hduser@MyPC:~$ jps
