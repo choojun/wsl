@@ -3,7 +3,7 @@
 
 Data engineering involves building systems to collect and utilize data. This data typically supports subsequent analysis and data science, often incorporating machine learning. Making data usable generally requires significant computational resources, storage, and processing. In essence, data engineering is the design and development of systems that allow individuals to gather and analyze raw data from diverse sources and formats. This website provides a one-stop setup and configuration for the system using Microsoft WSL. Hereby, the website has also incorporated a suite of distributed-ready open source software and guided exploration through selected application samples in the following setup sections.
 
-| Section (Tested with WSL2 and [Ubuntu](https://ubuntu.com/) 24.04 - LTS) | Windows 7 | Windows 10 | Windows 11 |
+| Section (Tested with WSL2 and [Ubuntu](https://ubuntu.com/) 24.04 LTS) | Windows 7 | Windows 10 | Windows 11 |
 |---|---|---|---|
 | A. [Remove/Setup WSL with Ubuntu](wsl_setup.md) | ❌ | ✔ | ✔ |
 | B. [Running Ubuntu on WSL](wsl_ubuntu.md) | ❌ | ✔ | ✔ |
@@ -15,7 +15,7 @@ If you are using Apple machines (MacBooks and iMacs with Intel/Apple Silicon pro
 
 | Setup Section (Tested with [OpenJDK](https://openjdk.org/) 17 LTS) | Required Framework and Software Combinations |
 |---|---|
-| E. [Hadoop](wsl_hadoop.md) <br>&nbsp;&nbsp;Self-check: <br>  DFS 123 | [Apache Hadoop](https://hadoop.apache.org/) 3.4.1 or 3.4.3 ? E5-2, E8-3| 
+| E. [Hadoop](wsl_hadoop.md)| [Apache Hadoop](https://hadoop.apache.org/) 3.4.1 or 3.4.3 ? E5-2, E8-3| 
 | F. [HDFS File Operations and MapReduce](wsl_hdfs.md) | [Apache Hadoop](https://hadoop.apache.org/) 3.4.1 | 
 | G. [Spark, PySpark Shell, Spark SQL and JupyterLab](wsl_pyspark.md) | [Apache Spark](https://spark.apache.org/) 4.0.4 or 4.0.5 ? G1-2, G2-1 | 
 | H. [Spark and Machine Learning](wsl_pyspark_ml.md) | [Apache Spark](https://spark.apache.org/) 4.0.4 with Scala 2.13.18 |  
