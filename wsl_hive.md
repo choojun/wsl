@@ -453,12 +453,20 @@ hduser@MyPC:~$ sudo systemctl start apache2
 hduser@MyPC:~$ sudo systemctl status apache2
 hduser@MyPC:~/hadoop3$ cd ~
 ~~~
-> To stop the timelineserver (also known as ApplicationHistoryServer from jps), using command
+> To stop the timelineserver (also known as ApplicationHistoryServer from jps) and its related services, using the following commands
 > ~~~bash
+> hduser@MyPC:~$ sudo systemctl stop apache2
+> hduser@MyPC:~$ sudo systemctl status apache2
+> hduser@MyPC:~$ cd ~/hadoop3
 > hduser@MyPC:~/hadoop3$ bin/yarn --daemon stop timelineserver
+> hduser@MyPC:~/hadoop3$ jps
+> hduser@MyPC:~/hadoop3$ sbin/stop-yarn.sh
+> hduser@MyPC:~/hadoop3$ sbin/stop-dfs.sh
+> hduser@MyPC:~/hadoop3$ cd ~
+> hduser@MyPC:~$
 > ~~~
 
-12. Open the Tez UI in your browser at http://localhost/tez-ui/
+12. Open and verify the Tez Web UI in your browser at http://localhost/tez-ui/
 
 
 
