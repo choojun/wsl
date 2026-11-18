@@ -28,6 +28,11 @@ If you are using Apple machines (MacBooks and iMacs with Intel/Apple Silicon pro
 >
 > **Optional**: To restore from the pre-setup WSL distro, download the required release from the URL https://github.com/choojun/wsl/releases and follow the steps in Section D after identifying your Ubuntu version.
 
+-----------------------------------------------------------
+### Hints: To start all services at the beginning of future practical
+
+
+### Hints: To stop all services at the end of future practical
 
 -----------------------------------------------------------
 
