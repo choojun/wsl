@@ -47,14 +47,9 @@ hduser@MyPC:~/hadoop3$ jps
 > YARN - http://localhost:8088/
 
 
-<details open>
-<summary><strong>deploy.sh</strong></summary>
-~~~bash
-hduse
-~~~
 
-> [!NOTE]
-> **setup.sh**
+
+> [!Session 2]
 ~~~bash
 hduser@MyPC:~/hadoop3$ bin/yarn --daemon start timelineserver
 hduser@MyPC:~/hadoop3$ jps
