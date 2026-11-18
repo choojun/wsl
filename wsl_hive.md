@@ -371,8 +371,7 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$TEZ_CONF_DIR:$TEZ_JARS/*:$TEZ_JARS/li
    </property>
 ~~~
 
-6. Apache HTTPD (more formally known as the Apache HTTP Server) is a free, open-source, cross-platform web server software. 
-Install HTTPD, stop the HTTPD service, and extract the Tez UI WAR file from your target distribution.
+6. Install Apache HTTPD, stop the HTTPD service, and extract the Tez web UI's WAR file from your target distribution.
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ sudo systemctl status apache2
@@ -384,8 +383,9 @@ hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ wget https://repository.apache.org/content/repositories/releases/org/apache/tez/tez-ui/0.10.5/tez-ui-0.10.5.war
 hduser@MyPC:~$ sudo unzip ~/tez-ui-0.10.5.war -d /var/www/html/tez-ui
 ~~~
+> Note that HTTPD (more formally known as the Apache HTTP Server) is a free, open-source, cross-platform web server software. The HTTPD serves as the standalone web server that hosts and delivers the static files for the Tez web UI.
 
-7. To enable the Tez Web UI to fetch JSON data directly from YARN ports (8188 and 8088) while viewing the page served by HTTPD (80). We need to enable CORS across Hadoop's HTTP services. Add the CORS filter initializer to ~/hadoop3/etc/hadoop/core-site.xml across our Hadoop cluster nodes.
+7. To enable the Tez web UI to fetch JSON data directly from YARN ports (8188 and 8088) while viewing the page served by HTTPD (80). We need to enable CORS across Hadoop's HTTP services. Add the CORS filter initializer to ~/hadoop3/etc/hadoop/core-site.xml across our Hadoop cluster nodes.
 ~~~bash
     <property>
         <name>hadoop.http.filter.initializers</name>
@@ -465,7 +465,7 @@ hduser@MyPC:~/hadoop3$ cd ~
 > hduser@MyPC:~$
 > ~~~
 
-12. Open and verify the Tez Web UI in your browser at http://localhost/tez-ui/
+12. Open and verify the Tez web UI in your browser at http://localhost/tez-ui/
 
 
 
@@ -492,7 +492,7 @@ hduser@MyPC:~/hive$ bin/hiveserver2
 ~~~
 > To stop the Hive, use Ctrl-C.
 >
-> To access the WebUI, visit http://localhost:10002/
+> To access the web UI, visit http://localhost:10002/
 
 5. Use a new shell **session 2**. Ensure that one additional service from HiveServer2 (i.e., the RunJar process) is visible when using the jps command before launching and logging into the Beeline shell using your MySQL credentials. 
 ~~~bash
