@@ -139,6 +139,7 @@ hduser@MyPC:~$ jps
 > hduser@MyPC:~$ jps
 > ~~~
 
+Stop the HTTPD service.
 ~~~bash
 hduser@MyPC:~$ sudo systemctl stop apache2
 hduser@MyPC:~$ sudo systemctl status apache2
@@ -147,6 +148,7 @@ hduser@MyPC:~/hadoop3$ bin/yarn --daemon stop timelineserver
 hduser@MyPC:~/hadoop3$ jps
 ~~~
 
+Stop the YARN and HDFS services.
 ~~~bash
 hduser@MyPC:~/hadoop3$ sbin/stop-yarn.sh
 hduser@MyPC:~/hadoop3$ sbin/stop-dfs.sh
