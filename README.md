@@ -51,17 +51,6 @@ hduser@MyPC:~$ jps
 > YARN - http://localhost:8088/
 
 ~~~bash
-hduser@MyPC:~/hadoop3$ bin/yarn --daemon start timelineserver
-hduser@MyPC:~/hadoop3$ jps
-hduser@MyPC:~/hadoop3$ cd ~
-hduser@MyPC:~$ sudo systemctl start apache2
-hduser@MyPC:~$ sudo systemctl status apache2
-hduser@MyPC:~$
-~~~
-> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> Tez web UI for Hive - http://localhost/tez-ui/
-
-~~~bash
 hduser@MyPC:~$ cd ~/kafka
 hduser@MyPC:~/kafka$ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
 hduser@MyPC:~/kafka$ bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
@@ -85,6 +74,17 @@ hduser@MyPC:~/hbase$ jps
 ~~~
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > HBase web UI - http://localhost:16010
+
+~~~bash
+hduser@MyPC:~$ ~/hadoop3/bin/yarn --daemon start timelineserver
+hduser@MyPC:~$ jps
+hduser@MyPC:~$ sudo systemctl start apache2
+hduser@MyPC:~$ sudo systemctl status apache2
+hduser@MyPC:~$
+~~~
+> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
+> Tez web UI - http://localhost/tez-ui/ <br>
+> It visualises Directed Acyclic Graphs (DAGs), vertices, tasks, data transfer edges, and resource bottlenecks for Tez jobs.
 
 Start the HiveServer2
 ~~~bash
