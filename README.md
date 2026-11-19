@@ -45,7 +45,7 @@ hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
 hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
 hduser@MyPC:~$ jps
 ~~~
-> Six (6) active services can be observed, including jps
+> Six (6) active services can be observed, including jps. <br>
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > DFS - http://localhost:9870 <br>
 > YARN - http://localhost:8088/
