@@ -77,6 +77,7 @@ hduser@MyPC:~$ jps
 > **HBase web UI** - http://localhost:16010 <br>
 > It monitors infrastructure health, region distribution, server loads, compaction queues, and low-latency read/write performance across Master and RegionServers.
 
+Start the YARN Timeline Server and HTTPD services.
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ ~/hadoop3/bin/yarn --daemon start timelineserver
@@ -95,7 +96,7 @@ hduser@MyPC:~$ cd ~
 hduser@MyPC:~/hive$ ~/hive/bin/hiveserver2
 hduser@MyPC:~$ jps
 ~~~
-> Start a new session, i.e. known as Session 3, to issue the command jps. You should start your practical exercises in the new Section 3.
+> Start a new session, i.e. known as Session 3, to issue the command jps. You should start your practical exercises in the new Section 3. <br>
 > Thirteen (13) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, HQuorumPeer, HMaster, HRegionServer, ThriftServer, ApplicationHistoryServer, **RunJar**. <br>
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > **HiveServer2 web UI** - http://localhost:10002 <br>
@@ -109,62 +110,64 @@ hduser@MyPC:~$ jps
 > [!NOTE]
 > **Session 2**
 
-Use Ctrl-c to stop HiveServer2
+Use Ctrl-c to stop HiveServer2 in Section 2.
 ~~~bash
-hduser@MyPC:~/hive$ jps
-hduser@MyPC:~/hive$ cd ~
-hduser@MyPC:~$
+hduser@MyPC:~$ jps
 ~~~
+> In Section 2, you will observe that the **RunJar** service has terminated after this step. There are 12 other services running in the background, including jps.
 
-Stop the Thrift service using the identified pid
+Stop the YARN Timeline Server and HTTPD services in Section 2.
+~~~bash
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ sudo systemctl stop apache2
+hduser@MyPC:~$ sudo systemctl status apache2
+hduser@MyPC:~$ ~/hadoop3/bin/yarn --daemon stop timelineserver
+hduser@MyPC:~$ jps
+~~~
+> In Section 2, you will observe that the **ApplicationHistoryServer** service has terminated after this step. There are 11 other services running in the background, including jps.
+
+Continue to stop the Thrift service using the identified pid in Section 2.
 ~~~bash
 hduser@MyPC:~$ ps -aux | grep 9090
 hduser    9441  1.5  3.1 2928716 152960 pts/2  Sl   07:46   0:05
 hduser@MyPC:~$ kill 9441
 hduser@MyPC:~$ jps
 ~~~
+> In Section 2, you will observe that the **ThriftServer** service has terminated after this step. There are 10 other services running in the background, including jps.
 
-Stop the Hbase and ZooKeeper services.
+Continue to stop the Hbase and ZooKeeper services in Section 2.
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ ~/hbase/bin/stop-hbase.sh
 hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh stop zookeeper
 hduser@MyPC:~$ jps
 ~~~
-
+> In Section 2, you will observe that the **HMaster**, **HRegionServer**, **HQuorumPeer** services have terminated after this step. There are 7 other services running in the background, including jps.
 
 > [!NOTE]
 > **Session 1**
-Use Ctrl-c to stop Kafka
+Use Ctrl-c to stop Kafka in Section 1.
 ~~~bash
-hduser@MyPC:~$ 
 hduser@MyPC:~$ jps
 ~~~
 > Optionally, use the following command to stop Kafka in Session 2.
 > ~~~bash
-> hduser@MyPC:~$ cd ~/kafka
+> hduser@MyPC:~$ cd ~
 > hduser@MyPC:~$ ~/kafka/bin/kafka-server-stop.sh
 > hduser@MyPC:~$ jps
 > ~~~
+> In Section 1, you will observe that the **Kafka** service has terminated after this step. There are 6 other services running in the background, including jps.
 
-Stop the HTTPD service.
+
+Continue to stop the YARN and HDFS services in Section 1.
 ~~~bash
-hduser@MyPC:~$ sudo systemctl stop apache2
-hduser@MyPC:~$ sudo systemctl status apache2
-hduser@MyPC:~$ cd ~/hadoop3
-hduser@MyPC:~/hadoop3$ bin/yarn --daemon stop timelineserver
-hduser@MyPC:~/hadoop3$ jps
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ ~/hadoop3/sbin/stop-yarn.sh
+hduser@MyPC:~$ ~/hadoop3/sbin/stop-dfs.sh
+hduser@MyPC:~$ jps
 ~~~
-
-Stop the YARN and HDFS services.
-~~~bash
-hduser@MyPC:~/hadoop3$ sbin/stop-yarn.sh
-hduser@MyPC:~/hadoop3$ sbin/stop-dfs.sh
-hduser@MyPC:~/hadoop3$ jps
-hduser@MyPC:~/hadoop3$ cd ~
-hduser@MyPC:~$ exit
-~~~
-
+> In Section 1, you will observe that the **NodeManager**, **ResourceManager**, **DataNode**, **NameNode**, **SecondaryNameNode** services have terminated after this step. There is 1 remaining background service running, namely jps. <br>
+> Congratulations! You have terminated all services. You may now proceed to exit all active sections.
 -----------------------------------------------------------
 
 
