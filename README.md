@@ -47,8 +47,10 @@ hduser@MyPC:~$ jps
 ~~~
 > Six (6) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager. <br>
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> DFS - http://localhost:9870 <br>
-> YARN - http://localhost:8088/
+> DFS web UI - http://localhost:9870 <br>
+> It inspects the HDFS's storage capacity, DataNode health, and block replication status, allowing administrators to browse the HDFS directory namespace and view file system logs via the HDFS NameNode Interface. <br>
+> YARN web UI - http://localhost:8088/ <br>
+> It  tracks cluster compute metrics like CPU and memory allocation, monitors the status of worker NodeManagers, and manages running or completed processing applications (Spark or MapReduce) through the YARN ResourceManager Interface.
 
 ~~~bash
 hduser@MyPC:~$ cd ~/kafka
