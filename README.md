@@ -46,8 +46,8 @@ hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
 hduser@MyPC:~$ jps
 ~~~
 > Self-check: <br>
-> <img width="143" height="130" alt="o3" src="https://github.com/user-attachments/assets/07a56daf-af1e-457e-b973-95b7b11be29e" /> DFS - http://localhost:9870 <br>
-> <img width="143" height="130" alt="o3" src="https://github.com/user-attachments/assets/07a56daf-af1e-457e-b973-95b7b11be29e" /> YARN - http://localhost:8088/
+> <img width="11" height="10" alt="o4" src="https://github.com/user-attachments/assets/7079d0b0-fc1a-4158-b026-b5af8d1769ac" /> DFS - http://localhost:9870 <br>
+> YARN - http://localhost:8088/
 
 ~~~bash
 hduser@MyPC:~/hadoop3$ bin/yarn --daemon start timelineserver
