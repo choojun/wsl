@@ -73,7 +73,8 @@ hduser@MyPC:~/hbase$
 hduser@MyPC:~/hbase$ jps
 ~~~
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> HBase web UI - http://localhost:16010
+> HBase web UI - http://localhost:16010 <br>
+> It monitors infrastructure health, region distribution, server loads, compaction queues, and low-latency read/write performance across Master and RegionServers.
 
 ~~~bash
 hduser@MyPC:~$ ~/hadoop3/bin/yarn --daemon start timelineserver
@@ -84,7 +85,7 @@ hduser@MyPC:~$
 ~~~
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > Tez web UI - http://localhost/tez-ui/ <br>
-> It visualises Directed Acyclic Graphs (DAGs), vertices, tasks, data transfer edges, and resource bottlenecks for Tez jobs.
+> It visualises [Directed Acyclic Graphs (DAGs)](https://en.wikipedia.org/wiki/Directed_acyclic_graph), vertices, tasks, data transfer edges, and resource bottlenecks for Tez jobs.
 
 Start the HiveServer2
 ~~~bash
@@ -92,7 +93,8 @@ hduser@MyPC:~$ cd ~/hive
 hduser@MyPC:~/hive$ bin/hiveserver2
 ~~~
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> HiveServer2 web UI - http://localhost:10002
+> HiveServer2 web UI - http://localhost:10002 <br>
+> It tracks client connections (JDBC/Beeline), session handles, active/completed SQL queries, and execution plans at the Hive service level.
 
 
 
