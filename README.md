@@ -40,14 +40,14 @@ Assuming you have successfully set up all the required frameworks and software l
 tarumt@MyPC:~$ su - hduser
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ sudo service ssh start
-hduser@MyPC:~$ cd hadoop3
-hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
-hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
-hduser@MyPC:~/hadoop3$ jps
+hduser@MyPC:~$ sudo service ssh status
+hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
+hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
+hduser@MyPC:~$ jps
 ~~~
 > Self-check: <br>
-> DFS - http://localhost:9870 <br>
-> YARN - http://localhost:8088/
+> <img width="143" height="130" alt="o3" src="https://github.com/user-attachments/assets/07a56daf-af1e-457e-b973-95b7b11be29e" /> DFS - http://localhost:9870 <br>
+> <img width="143" height="130" alt="o3" src="https://github.com/user-attachments/assets/07a56daf-af1e-457e-b973-95b7b11be29e" /> YARN - http://localhost:8088/
 
 ~~~bash
 hduser@MyPC:~/hadoop3$ bin/yarn --daemon start timelineserver
