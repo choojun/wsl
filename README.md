@@ -46,7 +46,7 @@ hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
 hduser@MyPC:~$ jps
 ~~~
 > Self-check: <br>
-> <img width="11" height="10" alt="o4" src="https://github.com/user-attachments/assets/7079d0b0-fc1a-4158-b026-b5af8d1769ac" /> DFS - http://localhost:9870 <br>
+> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> DFS - http://localhost:9870 <br>
 > YARN - http://localhost:8088/
 
 ~~~bash
