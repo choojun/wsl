@@ -53,11 +53,12 @@ hduser@MyPC:~$ jps
 > It  tracks cluster compute metrics like CPU and memory allocation, monitors the status of worker NodeManagers, and manages running or completed processing applications (Spark or MapReduce) through the YARN ResourceManager Interface.
 
 ~~~bash
+hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ KAFKA_CLUSTER_ID="$(~/kafka/bin/kafka-storage.sh random-uuid)"
 hduser@MyPC:~$ ~/kafka/bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c ~/kafka/config/server.properties
 hduser@MyPC:~$ ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
-hduser@MyPC:~$ jps
 ~~~
+> Start a new session, i.e. known as Session 2, to issue the command jps.
 > Seven (7) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, **kafka**. <br>
 
 > [!NOTE]
@@ -65,35 +66,37 @@ hduser@MyPC:~$ jps
 
 Start the ZooKeeper, Hbase and Thrift services.
 ~~~bash
-hduser@MyPC:~$ cd ~/hbase
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh start zookeeper
 hduser@MyPC:~$ ~/hbase/bin/start-hbase.sh
+hduser@MyPC:~$ ~/hbase/bin/hbase thrift start -p 9090 &
 hduser@MyPC:~$ jps
-hduser@MyPC:~/hbase$ bin/hbase thrift start -p 9090 &
-hduser@MyPC:~/hbase$ 
-hduser@MyPC:~/hbase$ jps
 ~~~
+> Eleven (11) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, **HQuorumPeer**, **HMaster**, **HRegionServer**, **ThriftServer**. <br>
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > **HBase web UI** - http://localhost:16010 <br>
 > It monitors infrastructure health, region distribution, server loads, compaction queues, and low-latency read/write performance across Master and RegionServers.
 
 ~~~bash
+hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ ~/hadoop3/bin/yarn --daemon start timelineserver
 hduser@MyPC:~$ jps
 hduser@MyPC:~$ sudo systemctl start apache2
 hduser@MyPC:~$ sudo systemctl status apache2
-hduser@MyPC:~$
 ~~~
+> Twelve (12) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, HQuorumPeer, HMaster, HRegionServer, ThriftServer, **ApplicationHistoryServer**. <br>
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > **Tez web UI** - http://localhost/tez-ui/ <br>
 > It visualises [Directed Acyclic Graphs (DAGs)](https://en.wikipedia.org/wiki/Directed_acyclic_graph), vertices, tasks, data transfer edges, and resource bottlenecks for Tez jobs.
 
 Start the HiveServer2
 ~~~bash
-hduser@MyPC:~$ cd ~/hive
-hduser@MyPC:~/hive$ bin/hiveserver2
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~/hive$ ~/hive/bin/hiveserver2
+hduser@MyPC:~$ jps
 ~~~
+> Start a new session, i.e. known as Session 3, to issue the command jps. You should start your practical exercises in the new Section 3.
+> Thirteen (13) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, HQuorumPeer, HMaster, HRegionServer, ThriftServer, ApplicationHistoryServer, **RunJar**. <br>
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > **HiveServer2 web UI** - http://localhost:10002 <br>
 > It tracks client connections (JDBC/Beeline), session handles, active/completed SQL queries, and execution plans at the Hive service level.
