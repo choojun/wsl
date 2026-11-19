@@ -47,9 +47,9 @@ hduser@MyPC:~$ jps
 ~~~
 > Six (6) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager. <br>
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> DFS web UI - http://localhost:9870 <br>
+> **HDFS web UI** - http://localhost:9870 <br>
 > It inspects the HDFS's storage capacity, DataNode health, and block replication status, allowing administrators to browse the HDFS directory namespace and view file system logs via the HDFS NameNode Interface. <br>
-> YARN web UI - http://localhost:8088/ <br>
+> **YARN web UI** - http://localhost:8088/ <br>
 > It  tracks cluster compute metrics like CPU and memory allocation, monitors the status of worker NodeManagers, and manages running or completed processing applications (Spark or MapReduce) through the YARN ResourceManager Interface.
 
 ~~~bash
@@ -75,7 +75,7 @@ hduser@MyPC:~/hbase$
 hduser@MyPC:~/hbase$ jps
 ~~~
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> HBase web UI - http://localhost:16010 <br>
+> **HBase web UI** - http://localhost:16010 <br>
 > It monitors infrastructure health, region distribution, server loads, compaction queues, and low-latency read/write performance across Master and RegionServers.
 
 ~~~bash
@@ -86,7 +86,7 @@ hduser@MyPC:~$ sudo systemctl status apache2
 hduser@MyPC:~$
 ~~~
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> Tez web UI - http://localhost/tez-ui/ <br>
+> **Tez web UI** - http://localhost/tez-ui/ <br>
 > It visualises [Directed Acyclic Graphs (DAGs)](https://en.wikipedia.org/wiki/Directed_acyclic_graph), vertices, tasks, data transfer edges, and resource bottlenecks for Tez jobs.
 
 Start the HiveServer2
@@ -95,7 +95,7 @@ hduser@MyPC:~$ cd ~/hive
 hduser@MyPC:~/hive$ bin/hiveserver2
 ~~~
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> HiveServer2 web UI - http://localhost:10002 <br>
+> **HiveServer2 web UI** - http://localhost:10002 <br>
 > It tracks client connections (JDBC/Beeline), session handles, active/completed SQL queries, and execution plans at the Hive service level.
 
 
