@@ -45,7 +45,7 @@ hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
 hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
 hduser@MyPC:~$ jps
 ~~~
-> Six (6) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager. <br>
+> Six (6) active services can be observed, including jps, **DataNode**, **NameNode**, **SecondaryNameNode**, **NodeManager**, **ResourceManager**. <br>
 > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > **HDFS web UI** - http://localhost:9870 <br>
 > It inspects the HDFS's storage capacity, DataNode health, and block replication status, allowing administrators to browse the HDFS directory namespace and view file system logs via the HDFS NameNode Interface. <br>
@@ -53,12 +53,12 @@ hduser@MyPC:~$ jps
 > It  tracks cluster compute metrics like CPU and memory allocation, monitors the status of worker NodeManagers, and manages running or completed processing applications (Spark or MapReduce) through the YARN ResourceManager Interface.
 
 ~~~bash
-hduser@MyPC:~$ cd ~/kafka
-hduser@MyPC:~/kafka$ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
-hduser@MyPC:~/kafka$ bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
-hduser@MyPC:~/kafka$ bin/kafka-server-start.sh config/server.properties
+hduser@MyPC:~$ KAFKA_CLUSTER_ID="$(~/kafka/bin/kafka-storage.sh random-uuid)"
+hduser@MyPC:~$ ~/kafka/bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c ~/kafka/config/server.properties
+hduser@MyPC:~$ ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
+hduser@MyPC:~$ jps
 ~~~
-
+> Seven (7) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, **kafka**. <br>
 
 > [!NOTE]
 > **Session 2**
