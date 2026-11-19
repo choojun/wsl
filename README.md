@@ -45,8 +45,8 @@ hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
 hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
 hduser@MyPC:~$ jps
 ~~~
-> Self-check: <br>
-> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> DFS - http://localhost:9870 <br>
+> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
+> DFS - http://localhost:9870 <br>
 > YARN - http://localhost:8088/
 
 ~~~bash
@@ -57,7 +57,7 @@ hduser@MyPC:~$ sudo systemctl start apache2
 hduser@MyPC:~$ sudo systemctl status apache2
 hduser@MyPC:~$
 ~~~
-> Self-check: <br>
+> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > Tez web UI for Hive - http://localhost/tez-ui/
 
 ~~~bash
@@ -82,7 +82,7 @@ hduser@MyPC:~/hbase$ bin/hbase thrift start -p 9090 &
 hduser@MyPC:~/hbase$ 
 hduser@MyPC:~/hbase$ jps
 ~~~
-> Self-check: <br>
+> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > HBase web UI - http://localhost:16010
 
 Start the HiveServer2
@@ -90,7 +90,7 @@ Start the HiveServer2
 hduser@MyPC:~$ cd ~/hive
 hduser@MyPC:~/hive$ bin/hiveserver2
 ~~~
-> Self-check: <br>
+> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
 > HiveServer2 web UI - http://localhost:10002
 
 
