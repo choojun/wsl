@@ -31,9 +31,9 @@ If you are using Apple machines (MacBooks and iMacs with Intel/Apple Silicon pro
 -----------------------------------------------------------
 
 
-Assuming you have successfully set up all the required framework and software listed above, run the following commands:
 
-### Todo 1: To start all services, e.g. at the beginning of every practical.
+## Todo 1: To start all services
+Assuming you have successfully set up all the required framework and software listed above, run the following commands on your setup or restored WSL distro, e.g. at the beginning of every practical.
 
 > [!NOTE]
 > **Session 1**
@@ -106,7 +106,8 @@ hduser@MyPC:~$ jps
 
 
 
-### Todo 2: To stop all services, e.g. at the end of every practical.
+## Todo 2: To stop all services
+Assuming you have successfully set up all the required framework and software listed above, run the following commands on your setup or restored WSL distro, e.g. at the end of every practical.
 
 > [!NOTE]
 > **Session 2**
