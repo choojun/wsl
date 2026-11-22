@@ -250,12 +250,12 @@ Run the following commands from Ubuntu with user **hduser**
    ~~~
    > Or, you may copy the downloaded tar.gz file manually to destination ~/hduser/
 
-3.	Untar the file
+3. Untar the file
    ~~~bash
    hduser@MyPC:~$ tar -xvzf hadoop-3.4.3.tar.gz
    ~~~
 
-4.	Rename the folder as hadoop3
+4. Rename the folder as hadoop3
    ~~~bash
    hduser@MyPC:~$ mv hadoop-3.4.3 hadoop3
    hduser@MyPC:~$ sudo chown -R hduser:hadoop hadoop3
