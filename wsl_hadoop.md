@@ -81,20 +81,15 @@ hduser@MyPC:~$ service ssh status
 
 4. Install pdsh
 ~~~bash
-hduser@MyPC:~$ sudo apt update
-hduser@MyPC:~$ sudo apt upgrade
-hduser@MyPC:~$ sudo apt install pdsh
+hduser@MyPC:~$ sudo apt update && sudo apt install pdsh
 ~~~
 
 5. Install Python (if necessary)
 ~~~bash
+hduser@MyPC:~$ sudo apt update
 hduser@MyPC:~$ python3 --version 
 hduser@MyPC:~$ sudo apt install software-properties-common
-hduser@MyPC:~$ sudo apt update
-hduser@MyPC:~$ sudo apt install python3
-hduser@MyPC:~$ sudo apt install python3-dev
-hduser@MyPC:~$ sudo apt install python3-wheel
-hduser@MyPC:~$ sudo apt install python3-full
+hduser@MyPC:~$ sudo apt install python3 python3-dev python3-wheel python3-full
 ~~~
 
 6. Check current python versions and symlinks
@@ -128,8 +123,7 @@ hduser@MyPC:~$ source ~/.bashrc
 
 11. Install pip or upgrade pip (if necessary)
 ~~~bash
-hduser@MyPC:~$ sudo apt update
-hduser@MyPC:~$ sudo apt install python3-pip
+hduser@MyPC:~$ sudo apt update && sudo apt install python3-pip
 hduser@MyPC:~$ pip3 --version
 ~~~~
 
@@ -140,7 +134,7 @@ hduser@MyPC:~$ java -version
 
 13. Install targeted OpenJDK
 ~~~bash
-hduser@MyPC:~$ sudo apt-get install openjdk-17-jdk
+hduser@MyPC:~$ sudo apt update && sudo apt-get install openjdk-17-jdk
 hduser@MyPC:~$ java -version
 ~~~
 > After this, remember to check if the correct version of Java is installed.
@@ -168,8 +162,7 @@ hduser@MyPC:~$ sudo service ssh start
 
 3. Install the ufw and open the SSH port (if necessary)
 ~~~bash
-hduser@MyPC:~$ sudo apt update
-hduser@MyPC:~$ sudo apt install ufw -y
+hduser@MyPC:~$ sudo apt update && sudo apt install ufw
 hduser@MyPC:~$ sudo ufw allow ssh
 ~~~
 > Ubuntu comes with a firewall configuration tool, known as UFW. If the firewall is enabled on your system, make sure to open the targeted SSH port, i.e. port 22.
