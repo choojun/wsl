@@ -14,10 +14,10 @@ Hadoop is an open-source software framework for the distributed storage and para
 ## E1. Setup User Environment [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
 
 1.	Login with user **tarumt**, and create a new group named hadoop
-~~~bash
-tarumt@MyPC:~$ cd ~
-tarumt@MyPC:~$ sudo addgroup hadoop
-~~~
+   ~~~bash
+   tarumt@MyPC:~$ cd ~
+   tarumt@MyPC:~$ sudo addgroup hadoop
+   ~~~
 
 2.	Create a new user account named hduser (if applicable)
 Add the new user:
