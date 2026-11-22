@@ -15,17 +15,17 @@
 2.	Download the correct version of Spark from the Apache Spark downloads page (http://spark.apache.org/downloads.html), and check the compatible with your installed Hadoop
     ~~~bash
     $ cd ~
-    $ wget https://archive.apache.org/dist/spark/spark-4.0.4/spark-4.0.4-bin-hadoop3-connect.tgz
+    $ wget https://archive.apache.org/dist/spark/spark-4.0.5/spark-4.0.5-bin-hadoop3-connect.tgz
     ~~~
 
 3.	Uncompress the file
     ~~~bash
-    $ tar -xvzf spark-4.0.4-bin-hadoop3-connect.tgz
+    $ tar -xvzf spark-4.0.5-bin-hadoop3-connect.tgz
     ~~~
 
 4.	Rename the Spark folder as spark
     ~~~bash
-    $ mv spark-4.0.4-bin-hadoop3-connect spark
+    $ mv spark-4.0.5-bin-hadoop3-connect spark
     ~~~
 
 5.	Edit the file ~/.bashrc with the the following lines
