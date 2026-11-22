@@ -243,7 +243,7 @@ Run the following commands from Ubuntu with user **hduser**
 1. Switch to the **hduser** account
 
 2. Download the Hadoop binary by finding the appropriate Hadoop binary from the Hadoop releases page.
-> We will use Hadoop 3.4.1 to avoid problems with HBase in a later practical. Read more at URL https://hbase.apache.org/book.html#hadoop
+   > We will use Hadoop 3.4.1 to avoid problems with HBase in a later practical. Read more at URL https://hbase.apache.org/book.html#hadoop
    ~~~bash
    hduser@MyPC:~$ cd ~
    hduser@MyPC:~$ wget https://downloads.apache.org/hadoop/common/hadoop-3.4.3/hadoop-3.4.3.tar.gz
