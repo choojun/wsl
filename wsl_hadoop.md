@@ -246,18 +246,18 @@ hduser@MyPC:~$ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 > We will use Hadoop 3.4.1 to avoid problems with HBase in a later practical. Read more at URL https://hbase.apache.org/book.html#hadoop
 ~~~bash
 hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ wget https://downloads.apache.org/hadoop/common/hadoop-3.4.1/hadoop-3.4.1.tar.gz
+hduser@MyPC:~$ wget https://downloads.apache.org/hadoop/common/hadoop-3.4.3/hadoop-3.4.3.tar.gz
 ~~~
 > Or, you may copy the downloaded tar.gz file manually to destination ~/hduser/
 
 3.	Untar the file
 ~~~bash
-hduser@MyPC:~$ tar -xvzf hadoop-3.4.1.tar.gz
+hduser@MyPC:~$ tar -xvzf hadoop-3.4.3.tar.gz
 ~~~
 
 4.	Rename the folder as hadoop3
 ~~~bash
-hduser@MyPC:~$ mv hadoop-3.4.1 hadoop3
+hduser@MyPC:~$ mv hadoop-3.4.3 hadoop3
 hduser@MyPC:~$ sudo chown -R hduser:hadoop hadoop3
 hduser@MyPC:~$ sudo chmod g+w -R hadoop3
 ~~~
@@ -339,12 +339,12 @@ hduser@MyPC:~$ ssh localhost
 
 7. Edit the ~/hadoop3/etc/hadoop/core-site.xml file by adding the following configuration.
  ~~~xml
-    <configuration>
-       <property>
-          <name>fs.defaultFS</name>
-          <value>hdfs://localhost:9000</value>
-       </property>
-    </configuration>
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+</configuration>
  ~~~
  > Remember to save the edited file by ctrl-x.
 
@@ -424,34 +424,33 @@ hduser@MyPC:~$ ssh localhost
  > Remember to save the edited file by ctrl-x.
 
 11. Edit the ~/hadoop3/etc/hadoop/yarn-env.sh file by adding the following configuration.
- ~~~bash
- # Force YARN to pass modular opens flags to its JVM instances
- export YARN_OPTS="$YARN_OPTS --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED"
- ~~~
- > Remember to save the edited file by ctrl-x.
+~~~bash
+# Force YARN to pass modular opens flags to its JVM instances
+export YARN_OPTS="$YARN_OPTS --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED"
+~~~
+> Remember to save the edited file by ctrl-x.
 
 
 
 12. Format the namenode 
  ~~~bash
- hduser@MyPC:~/hadoop3$ ls ~/
- hduser@MyPC:~/hadoop3$ bin/hdfs namenode -format
- hduser@MyPC:~/hadoop3$ ls ~/
+ hduser@MyPC:~$ cd ~
+ hduser@MyPC:~$ ls
+ hduser@MyPC:~$ ~/hadoop3/bin/hdfs namenode -format
+ hduser@MyPC:~$ ls
  ~~~
  > Running the above command should display information on formating the namenode of Hadoop with installed Java. You should observe the namenode formated and **terminated without any error**. 
 
-13. Start the Distributed File System (DFS) service
+13. Start the Hadoop Distributed File System (DFS) services
  ~~~bash
- hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
- ~~~
- > Start the NameNode and DataNode daemons
- ~~~bash
- hduser@MyPC:~/hadoop3$ jps
+ hduser@MyPC:~$ cd ~
+ hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
+ hduser@MyPC:~$ jps
  ~~~
  > Check the status. If the NameNode and DataNode services are initiated successfully, you should see these four processes
  > ~~~
- > DataNode
  > Jps
+ > DataNode
  > NameNode
  > SecondaryNameNode
  > ~~~
