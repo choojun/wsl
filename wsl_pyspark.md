@@ -58,11 +58,10 @@ Python virtual environments (venv) create a self-contained and isolated environm
 
     1.2 Create a venv for your project (e.g., de-test-venv):
       ~~~bash
-      $ sudo apt install python3-full
-      $ sudo apt install jupyter-core
+      $ sudo apt update && sudo apt install python3-full jupyter-core
       $ python3 -m venv de-test/de-test-venv
       $ de-test/de-test-venv/bin/python -m pip install -U pip wheel setuptools ipykernel grpcio-status numpy pandas
-      $ de-test/de-test-venv/bin/python -m pip install -U pyspark==4.0.4
+      $ de-test/de-test-venv/bin/python -m pip install -U pyspark==4.0.5
       $ de-test/de-test-venv/bin/python -m pip install -U jupyterlab
       $ de-test/de-test-venv/bin/python -m ipykernel install --user --name "de-test-venv" --display-name  "de-test-venv"
       ~~~
@@ -113,35 +112,36 @@ Python virtual environments (venv) create a self-contained and isolated environm
    > To exit the pyspark shell with command exit()
    ~~~bash
    Welcome to
-         ____              __
-        / __/__  ___ _____/ /__
-       _\ \/ _ \/ _ `/ __/  '_/
-      /__ / .__/\_,_/_/ /_/\_\   version 4.0.4
-         /_/
-   Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
-   Spark context Web UI available at http://172.31.77.100:4040
-   Spark context available as 'sc' (master = local[*], app id = local-1792576061544).
-   SparkSession available as 'spark'.
-   >>>
-   >>> exit()
-   ~~~
-   >
-   > To minimize the verbosity of Spark , you need to configure the settings of log4j after duplicating the template file (optional).
-   >
-   >To visit the Web UI, paste the given URL, or http://localhost:4040/, in any web browser for previewing.
-   ~~~bash
-   $ cp $SPARK_HOME/conf/log4j2.properties.template $SPARK_HOME/conf/log4j2.properties
-   ~~~
-   > Edit the newly created log4j file, by replacing every occurrence of INFO with WARN, e.g.
-   > 
-   > rootLogger.level = warn  
-   > rootLogger.appenderRef.stdout.ref = console  
+          ____              __
+         / __/__  ___ _____/ /__
+        _\ \/ _ \/ _ `/ __/  '_/
+       /__ / .__/\_,_/_/ /_/\_\   version 4.0.5
+          /_/
 
-   2.5 **Important: Remember to deactivate the venv**. Once you no longer need to work in the environment, you may deactivate the environment to return to your normal shell.
-      ~~~bash
-      (de-test-venv) hduserMyPC@MyPC:~$ deactivate
-      hduserMyPC@MyPC:~$ 
-      ~~~
+    Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
+    Spark context Web UI available at http://172.31.77.100:4040
+    Spark context available as 'sc' (master = local[*], app id = local-1795359497285).
+    SparkSession available as 'spark'.
+    >>>
+    >>> exit()
+    ~~~
+    >
+    > To minimize the verbosity of Spark , you need to configure the settings of log4j after duplicating the template file (optional).
+    >
+    >To visit the Web UI, paste the given URL, or http://localhost:4040/, in any web browser for previewing.
+    ~~~bash
+    $ cp $SPARK_HOME/conf/log4j2.properties.template $SPARK_HOME/conf/log4j2.properties
+    ~~~
+    > Edit the newly created log4j file, by replacing every occurrence of INFO with WARN, e.g.
+    > 
+    > rootLogger.level = warn  
+    > rootLogger.appenderRef.stdout.ref = console  
+
+    2.5 **Important: Remember to deactivate the venv**. Once you no longer need to work in the environment, you may deactivate the environment to return to your normal shell.
+    ~~~bash
+    (de-test-venv) hduserMyPC@MyPC:~$ deactivate
+    hduserMyPC@MyPC:~$ 
+    ~~~
 
 ## G3. Using the PySpark Shell for Word Count [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
 
