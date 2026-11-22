@@ -458,11 +458,8 @@ export YARN_OPTS="$YARN_OPTS --add-opens=java.base/java.lang=ALL-UNNAMED --add-o
 
 14. Start the Yet Another Resource Negotiator (YARN) service
  ~~~bash
- hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
- ~~~
- > Start the Yarn daemon
- ~~~bash
- hduser@MyPC:~/hadoop3$ jps
+ hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
+ hduser@MyPC:~$ jps
  ~~~
  > Check the status. If the Yarn services are initiated successfully, you should see a total of six processes (included these two).
  > ~~~
@@ -473,9 +470,10 @@ export YARN_OPTS="$YARN_OPTS --add-opens=java.base/java.lang=ALL-UNNAMED --add-o
 
 15. Create HDFS directories required to execute MapReduce jobs for all created users, e.g. hduser and student
  ~~~bash
- hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir /user
- hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir /user/hduser
- hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir /user/student
+ hduser@MyPC:~$ cd ~
+ hduser@MyPC:~$ hdfs dfs -mkdir /user
+ hduser@MyPC:~$ hdfs dfs -mkdir /user/hduser
+ hduser@MyPC:~$ hdfs dfs -mkdir /user/student
  ~~~
 
 ## E8. Run a sample MapReduce Job in Hadoop [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
@@ -484,18 +482,19 @@ export YARN_OPTS="$YARN_OPTS --add-opens=java.base/java.lang=ALL-UNNAMED --add-o
 
 2. Copy the input files into the distributed file system
 ~~~bash
-hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir input
-hduser@MyPC:~/hadoop3$ hdfs dfs -put etc/hadoop/*.xml input
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ hdfs dfs -mkdir input
+hduser@MyPC:~$ hdfs dfs -put etc/hadoop/*.xml input
 ~~~
 
 3. Run a MapReduce job from an example
 ~~~bash
-hduser@MyPC:~/hadoop3$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.1.jar grep input output 'dfs[a-z.]+'
+hduser@MyPC:~$ ~/hadoop3/bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.1.jar grep input output 'dfs[a-z.]+'
 ~~~
 
 4. View the output files on the distributed system
 ~~~bash
-hduser@MyPC:~/hadoop3$ hdfs dfs -cat output/*
+hduser@MyPC:~$ hdfs dfs -cat output/*
 Output:
 1      dfsadmin
 1      dfs.replication
@@ -506,10 +505,9 @@ Output:
 5. Stop all the daemons
 ~~~bash
 hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ cd hadoop3
-hduser@MyPC:~/hadoop3$ sbin/stop-yarn.sh
-hduser@MyPC:~/hadoop3$ sbin/stop-dfs.sh
-hduser@MyPC:~/hadoop3$ jps
+hduser@MyPC:~$ ~/hadoop3/sbin/stop-yarn.sh
+hduser@MyPC:~$ ~/hadoop3/sbin/stop-dfs.sh
+hduser@MyPC:~$ jps
 ~~~
 
 6. Logout from the hduser account and your tarumt account.
@@ -531,15 +529,15 @@ hduser@MyPC:~$ sudo service ssh start
 3. Start the HDFS service
 ~~~bash
 hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ cd hadoop3
-hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
-hduser@MyPC:~/hadoop3$ jps
+hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
+hduser@MyPC:~$ jps
 ~~~
 > Suppose you need to observe at least four (4) services, including both NameNode and DataNode, as stated in step 12 of G7. Otherwise, you may need to reformat the HDFS NameNode. Wait for the format process to complete without errors before proceeding. Note that formatting the NameNode will result in loss of all data files in HDFS. You also need to recreate the directory /user and its sub-directory /user/hduser after starting the HDFS service and before moving on to the next steps.
 >  ~~~bash
 > $ cd ~/hadoop3
 > $ bin/hdfs namenode -format
 > $ sbin/start-dfs.sh
+> $ cd ~
 > $ hdfs dfs -mkdir /user
 > $ hdfs dfs -mkdir /user/hduser
 > ~~~
@@ -547,9 +545,8 @@ hduser@MyPC:~/hadoop3$ jps
 4. Start the YARN service
 ~~~bash
 hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ cd hadoop3
-hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
-hduser@MyPC:~/hadoop3$ jps
+hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
+hduser@MyPC:~$ jps
 ~~~
 > Suppose you need to observe at least six (6) services in the total, refer steps 12 and 13 of G7.
 
@@ -563,15 +560,12 @@ $ su - hduser
 2. Stop the YARN service
 ~~~bash
 hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ cd hadoop3
-hduser@MyPC:~/hadoop3$ sbin/stop-yarn.sh
+hduser@MyPC:~$ ~/hadoop3/sbin/stop-yarn.sh
 ~~~
 
 3. Stop the HDFS service
 ~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~ cd hadoop3
-hduser@MyPC:~/hadoop3$ sbin/stop-dfs.sh
+hduser@MyPC:~$ ~/hadoop3/sbin/stop-dfs.sh
 ~~~
 > Issue command top to examine all expected services terminated, and use Ctrl-c to exit from command top
 
