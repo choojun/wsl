@@ -20,7 +20,7 @@
 2. You may install the required scala version (2.13.x) as steps as follows
    ~~~bash
    hduser@MyPC:~$ cd ~
-   hduser@MyPC:~$ sudo apt install zip unzip
+   hduser@MyPC:~$ sudo apt update && sudo apt install zip unzip
    hduser@MyPC:~$ curl -s "https://get.sdkman.io" | bash
    hduser@MyPC:~$ source "/home/hduser/.sdkman/bin/sdkman-init.sh"
    hduser@MyPC:~$ sdk install scala 2.13.16
