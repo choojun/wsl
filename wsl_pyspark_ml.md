@@ -11,7 +11,7 @@
 | Cross-Language Consistency 	| Historically had separate, fragmented APIs across Scala, Java, and Python, with some features lacking parity.                                                   	| Historically had separate, fragmented APIs across Scala, Java, and Python, with some features lacking parity.                                                                                                                                                                                                                  	|
 | Spark Connect Compatible   	| No                                                                                                                                                              	| Yes (Native support optimized in Spark 4)                                                                                                                                                                                                                                                                                      	|
 
-Spark (including RDDs and DataFrames) and its machine learning-based APIs are available at the URL https://spark.apache.org/docs/4.0.4/ 
+Spark (including RDDs and DataFrames) and its machine learning-based APIs are available at the URL https://spark.apache.org/docs/4.0.5/ 
 
 File for exercise: [mllib.zip](https://github.com/choojun/choojun.github.io/files/14240398/mllib.zip)
 
