@@ -151,16 +151,17 @@ Python virtual environments (venv) create a self-contained and isolated environm
     hduser@MyPC:~$ source de-test/de-test-venv/bin/activate
     (de-test-venv) hduserMyPC@MyPC:~$ pyspark
     Welcome to
-          ____              __
-         / __/__  ___ _____/ /__
-        _\ \/ _ \/ _ `/ __/  '_/
-       /__ / .__/\_,_/_/ /_/\_\   version 4.0.4
-          /_/
-    Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
-    Spark context Web UI available at http://172.31.77.100:4040
-    Spark context available as 'sc' (master = local[*], app id = local-1792576061544).
-    SparkSession available as 'spark'.
-    >>>
+            ____              __
+           / __/__  ___ _____/ /__
+          _\ \/ _ \/ _ `/ __/  '_/
+         /__ / .__/\_,_/_/ /_/\_\   version 4.0.5
+            /_/
+      
+      Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
+      Spark context Web UI available at http://172.31.77.100:4040
+      Spark context available as 'sc' (master = local[*], app id = local-1795359497285).
+      SparkSession available as 'spark'.
+      >>>
     ~~~
 
 2.	Create an Resilient Distributed Dataset (RDD) with data from a text file. It transforms the RDD to implement the word count application using Spark.
@@ -205,16 +206,17 @@ Python virtual environments (venv) create a self-contained and isolated environm
     hduser@MyPC:~$ source de-test/de-test-venv/bin/activate
     (de-test-venv) hduserMyPC:~$ pyspark --executor-cores 4
     Welcome to
-          ____              __
-         / __/__  ___ _____/ /__
-        _\ \/ _ \/ _ `/ __/  '_/
-       /__ / .__/\_,_/_/ /_/\_\   version 4.0.4
-          /_/
-    Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
-    Spark context Web UI available at http://172.31.77.100:4040
-    Spark context available as 'sc' (master = local[*], app id = local-1792576061544).
-    SparkSession available as 'spark'.
-    >>>
+            ____              __
+           / __/__  ___ _____/ /__
+          _\ \/ _ \/ _ `/ __/  '_/
+         /__ / .__/\_,_/_/ /_/\_\   version 4.0.5
+            /_/
+      
+      Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
+      Spark context Web UI available at http://172.31.77.100:4040
+      Spark context available as 'sc' (master = local[*], app id = local-1795359497285).
+      SparkSession available as 'spark'.
+      >>>
     ~~~
 
 2.	Try the following codes. The codes generate a list of random integers and create an RDD by parallelizing num_list with library numpy.
@@ -319,16 +321,17 @@ Python virtual environments (venv) create a self-contained and isolated environm
     hduser@MyPC:~$ source de-test/de-test-venv/bin/activate
     (de-test-venv) hduserMyPC:~$ pyspark --executor-cores 4
     Welcome to
-          ____              __
-         / __/__  ___ _____/ /__
-        _\ \/ _ \/ _ `/ __/  '_/
-       /__ / .__/\_,_/_/ /_/\_\   version 4.0.4
-          /_/
-    Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
-    Spark context Web UI available at http://172.31.77.100:4040
-    Spark context available as 'sc' (master = local[*], app id = local-1792576061544).
-    SparkSession available as 'spark'.
-    >>>
+            ____              __
+           / __/__  ___ _____/ /__
+          _\ \/ _ \/ _ `/ __/  '_/
+         /__ / .__/\_,_/_/ /_/\_\   version 4.0.5
+            /_/
+      
+      Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
+      Spark context Web UI available at http://172.31.77.100:4040
+      Spark context available as 'sc' (master = local[*], app id = local-1795359497285).
+      SparkSession available as 'spark'.
+      >>>
     ~~~
 
 2.	Find the longest word in a sentence
@@ -476,16 +479,17 @@ Python virtual environments (venv) create a self-contained and isolated environm
     (de-test-venv) hduserMyPC:~$ pip3 install -U reverse_geocoder
     (de-test-venv) hduserMyPC:~$ pyspark
     Welcome to
-          ____              __
-         / __/__  ___ _____/ /__
-        _\ \/ _ \/ _ `/ __/  '_/
-       /__ / .__/\_,_/_/ /_/\_\   version 4.0.4
-          /_/
-    Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
-    Spark context Web UI available at http://172.31.77.100:4040
-    Spark context available as 'sc' (master = local[*], app id = local-1792576061544).
-    SparkSession available as 'spark'.
-    >>>
+           ____              __
+          / __/__  ___ _____/ /__
+         _\ \/ _ \/ _ `/ __/  '_/
+        /__ / .__/\_,_/_/ /_/\_\   version 4.0.5
+           /_/
+     
+     Using Python version 3.12.3 (main, Aug 31 2026 10:18:26)
+     Spark context Web UI available at http://172.31.77.100:4040
+     Spark context available as 'sc' (master = local[*], app id = local-1795359497285).
+     SparkSession available as 'spark'.
+     >>>
     ~~~
 
 4.	Launch the PySpark Shell, and try the following codes
