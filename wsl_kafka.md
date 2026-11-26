@@ -82,7 +82,7 @@
 
 3. Stopping Kafka.
    ~~~bash
-   hduser@MyPC:~$ cd ~/kafka
+   hduser@MyPC:~$ cd ~
    hduser@MyPC:~$ ~/kafka/bin/kafka-server-stop.sh
    hduser@MyPC:~$ jps
    ~~~
@@ -120,7 +120,7 @@
 
 3. **Producer terminal**: Send a few messages under the topic test.
    ~~~
-   hduser@MyPC:~$ ~/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+   hduser@MyPC:~$ ~/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test
    ~~~
    > A prompt (>) should appear for you to input your messages. For example, type in the following messages
    > > This is the first test message
