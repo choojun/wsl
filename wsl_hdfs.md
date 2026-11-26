@@ -165,7 +165,7 @@ $ hdfs dfs -ls
 2.	Input and Output types of a MapReduce job:
 > (input) <k1, v1> -> map -> <k2, v2> -> combine -> <k2, v2> -> reduce -> <k3, v3> (output)
 
-3.	Read more on MapReduce at URLs https://hadoop.apache.org/docs/r3.4.1/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html , https://en.wikipedia.org/wiki/MapReduce and download file [WordCount.zip](https://github.com/choojun/choojun.github.io/files/14274971/WordCount.zip) for exercise as follows.
+3.	Read more on MapReduce at URLs https://hadoop.apache.org/docs/r3.4.3/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html , https://en.wikipedia.org/wiki/MapReduce and download file [WordCount.zip](https://github.com/choojun/choojun.github.io/files/14274971/WordCount.zip) for exercise as follows.
 
 4.	Login as **hduser**, and make a copy of the C:\de\WordCount folder in the local hduser’s home directory
 ~~~bash
