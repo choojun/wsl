@@ -51,11 +51,11 @@
 
 2. Start Kafka broker server in the background after generated the UUID and formatted the required storage.
    ~~~bash
-   hduser@MyPC:~$ cd ~/kafka
-   hduser@MyPC:~/kafka$ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
-   hduser@MyPC:~/kafka$ bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
-   hduser@MyPC:~/kafka$ bin/kafka-server-start.sh config/server.properties
-   hduser@MyPC:~/kafka$ jps
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~$ KAFKA_CLUSTER_ID="$(~/kafka/bin/kafka-storage.sh random-uuid)"
+   hduser@MyPC:~$ ~/kafka/bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c ~/kafka/config/server.properties
+   hduser@MyPC:~$ ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
+   hduser@MyPC:~$ jps
    ~~~
    > You should observe the Kafka process with the command jps. You should observe a total of **seven** services, i.e. Jps, SecondaryNameNode, ResourceManager, NodeManager, DataNode, Kafka, NameNode
    >
