@@ -243,7 +243,7 @@ Run the following commands from Ubuntu with user **hduser**
 1. Switch to the **hduser** account
 
 2. Download the Hadoop binary by finding the appropriate Hadoop binary from the Hadoop releases page.
-   > We will use Hadoop 3.4.1 to avoid problems with HBase in a later practical. Read more at URL https://hbase.apache.org/book.html#hadoop
+   > We will use Hadoop 3.4.x with Java 17 to avoid problems with HBase in a later practical. Read more at URL https://hbase.apache.org/docs/configuration/basic-prerequisites
    ~~~bash
    hduser@MyPC:~$ cd ~
    hduser@MyPC:~$ wget https://downloads.apache.org/hadoop/common/hadoop-3.4.3/hadoop-3.4.3.tar.gz
@@ -489,7 +489,7 @@ Run the following commands from Ubuntu with user **hduser**
 
 3. Run a MapReduce job from an example
    ~~~bash
-   hduser@MyPC:~$ ~/hadoop3/bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.1.jar grep input output 'dfs[a-z.]+'
+   hduser@MyPC:~$ ~/hadoop3/bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.3.jar grep input output 'dfs[a-z.]+'
    ~~~
 
 4. View the output files on the distributed system
