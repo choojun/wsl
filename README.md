@@ -23,7 +23,7 @@ If you are using Apple machines (MacBooks and iMacs with Intel/Apple Silicon pro
 | K. [HBase](wsl_hbase.md) | [Apache HBase](https://hbase.apache.org/) 3.0.0 |
 | L. [HappyBase with HBase Thift](wsl_happybase.md) | [HappyBase](https://happybase.readthedocs.io/) 1.2.0 | 
 | M. [Hive with Tez and MySQL](wsl_hive.md) | [Apache Hive](https://hive.apache.org/) 4.2.1 with [Apache Tez](https://tez.apache.org/) 0.10.5 and [MySQL](https://www.mysql.com/downloads/) 8.0.46 |
-> Needed Web browser, constant Internet connection, [SSH](https://en.wikipedia.org/wiki/Secure_Shell) and [PDSH](https://github.com/chaos/pdsh), [Python](https://www.python.org/) 3.12.x
+> Needed Web browser, constant Internet connection, [SSH](https://en.wikipedia.org/wiki/Secure_Shell) and [PDSH](https://github.com/chaos/pdsh), [Python](https://www.python.org/) 3.12.x (tested 3.12.3).
 >
 > **Optional**: To restore from the pre-setup WSL distro, download the required release from the URL https://github.com/choojun/wsl/releases and follow the steps in Section D after identifying your Ubuntu version.
 
