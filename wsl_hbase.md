@@ -68,7 +68,8 @@ HBase has many features which supports both linear and modular scaling. HBase cl
    export HBASE_HOME=/home/hduser/hbase
    export PATH=$PATH:$HBASE_HOME/bin
    export HBASE_CLASSPATH=$HBASE_HOME/lib/*
-   export HBASE_CLASSPATH=$(find $HBASE_HOME/lib/ -name "*.jar" | tr '\n' ':')
+   export HBASE_CLASSPATH=$(find $HBASE_HOME/lib -name "*.jar" | tr '\n' ':')
+   export HBASE_CLASSPATH=$(find $HBASE_HOME/lib -type d -o -name '*.jar' | paste -sd ':' -)
    ~~~
    > Remember to issue source ~/.bashrc after saving the file.
 
@@ -78,7 +79,8 @@ HBase has many features which supports both linear and modular scaling. HBase cl
    export HBASE_HOME=/home/hduser/hbase
    export HBASE_HEAPSIZE=4G
    export HBASE_CLASSPATH=/home/hduser/hbase/lib/*
-   export HBASE_CLASSPATH=$(find $HBASE_HOME/lib/ -name "*.jar" | tr '\n' ':')
+   export HBASE_CLASSPATH=$(find $HBASE_HOME/lib -name "*.jar" | tr '\n' ':')
+   export HBASE_CLASSPATH=$(find $HBASE_HOME/lib -type d -o -name '*.jar' | paste -sd ':' -)
    export HBASE_REGIONSERVERS=/home/hduser/hbase/conf/regionservers
    export HBASE_MANAGES_ZK=false
    ~~~
