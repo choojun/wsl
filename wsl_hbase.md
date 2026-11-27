@@ -43,7 +43,7 @@ HBase has many features which supports both linear and modular scaling. HBase cl
    hduser@MyPC:~$ tar -xvzf hbase-byo-hadoop-3.0.0-bin.tar.gz
    hduser@MyPC:~$ mv hbase-byo-hadoop-3.0.0 hbase
    ~~~
-   > Find the current stable release of HBase that is compatible with your version of Hadoop at here (https://hbase.apache.org/book.html#hadoop), and you may find a list of releases at Apache Hbase download page (https://hbase.apache.org/downloads.html). For example, you may adopt the tested version Hbase 3.0.0 with Hadoop 3.4.1.
+   > Find the current stable release of HBase that is compatible with your version of Hadoop at here (https://hbase.apache.org/docs/configuration/basic-prerequisites), and you may find a list of releases at Apache Hbase download page (https://hbase.apache.org/downloads.html). For example, you may adopt the tested version Hbase 3.0.0 with Hadoop 3.4.1.
 
 
 ## K2. Configure HBase [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
