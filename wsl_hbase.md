@@ -125,14 +125,14 @@ HBase has many features which supports both linear and modular scaling. HBase cl
 
 5. Start the HDFS, YARN and Kafka services.
    ~~~bash
-   hduser@MyPC:~$ cd ~/hadoop3
-   hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
-   hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
-   hduser@MyPC:~$ cd ~/kafka
-   hduser@MyPC:~/kafka$ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
-   hduser@MyPC:~/kafka$ bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
-   hduser@MyPC:~/kafka$ bin/kafka-server-start.sh config/server.properties
-   hduser@MyPC:~/kafka$ jps
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
+   hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
+   hduser@MyPC:~$ jps
+   hduser@MyPC:~$ KAFKA_CLUSTER_ID="$(~/kafka/bin/kafka-storage.sh random-uuid)"
+   hduser@MyPC:~$ ~/kafka/bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c ~/kafka/config/server.properties
+   hduser@MyPC:~$ ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
+   hduser@MyPC:~$ jps
    ~~~
    > Attention! Please wait at least 30 seconds after issuing each command. Responses may be slow to start following your recent configuration.
    > Please verify that Kafka is running by running the jps command, i.e. you should see a total of seven processes before proceed to the next step. 
