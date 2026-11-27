@@ -18,7 +18,7 @@ HBase has many features which supports both linear and modular scaling. HBase cl
    hduser@MyPC:~$ cd ~
    hduser@MyPC:~$ hadoop version
    ~~~
-   > Reinstall the Hadoop if it is not version 3.4.1. Remember to delete the existing hadoop3 directory before begin your setup.
+   > Reinstall the Hadoop if it is not version 3.4.x (tested 3.4.3). Remember to delete the existing hadoop3 and old version directories before begin your setup.
 
 3. Check the installed version of PySpark.
    ~~~bash
@@ -26,7 +26,7 @@ HBase has many features which supports both linear and modular scaling. HBase cl
    hduser@MyPC:~$ source de-test/de-test-venv/bin/activate
    (de-test-venv) hduser@MyPC:~$ pyspark --version
    ~~~
-   > Reinstall the Spark if it the PySpark not version 4.0.x (tested 4.0.4 for Hadoop 3.4.1). Remember to delete the existing spark directory before begin your setup.
+   > Reinstall the Spark if it the PySpark not version 4.0.x (tested 4.0.5 for Hadoop 3.4.3). Remember to delete the existing spark and old version directories before begin your setup.
 
 4. Check the installed version of Scala.
    ~~~bash
@@ -34,7 +34,7 @@ HBase has many features which supports both linear and modular scaling. HBase cl
    (de-test-venv) hduser@MyPC:~$ ll ~/kafka/libs | grep kafka
    (de-test-venv) hduser@MyPC:~$ deactivate
    ~~~
-   > Reinstall the Kafka (tested Kafka 4.3.1 with Scala 2.13.16) if it is not those version of your install Scala, say 2.13.x as shown in file kafka_(Scala-version)-(Kafka-version).*. Remember to delete the existing kafka directory before begin your setup.
+   > Reinstall the Kafka (tested Kafka 4.3.2 with Scala 2.13.18) if it is not those version of your install Scala, say 2.13.x as shown in file kafka_(Scala-version)-(Kafka-version).*. Remember to delete the existing kafka directory before begin your setup.
 
 5. Download HBase.
    ~~~bash
