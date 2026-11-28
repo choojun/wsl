@@ -551,3 +551,5 @@ Transaction isolation: TRANSACTION_REPEATABLE_READ
 5. Try out the Guided Tutorials as follows
    * https://cwiki.apache.org/confluence/display/hive/tutorial
    * https://www.simplilearn.com/tutorials/hadoop-tutorial/hive
+
+## Remember to stop all services at the end of every practical [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
