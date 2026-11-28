@@ -26,8 +26,8 @@ export YARN_HOME=/home/hduser/hadoop3
 export HIVE_HOME=/home/hduser/hive
 export PATH=$PATH:$HIVE_HOME/bin
 export HIVE_CONF_DIR=/home/hduser/hive/conf
-export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JAVA_HOME}/lib/tools.jar:/home/hduser/hadoop3/share/hadoop/common/*:/home/hduser/hadoop3/share/hadoop/common/lib/*:/home/hduser/hadoop3/share/hadoop/client/*:/home/hduser/hadoop3/share/hadoop/hdfs/lib/*:/home/hduser/hadoop3/share/hadoop/hdfs/*:/home/hduser/hadoop3/share/hadoop/tools/lib/*:/home/hduser/hadoop3/share/hadoop/mapreduce/*:/home/hduser/hadoop3/share/hadoop/yarn/*:/home/hduser/hadoop3/share/hadoop/yarn/lib/*:/home/hduser/hadoop3/share/hadoop/yarn/timelineservice/*:/home/hduser/hadoop3/share/hadoop/yarn/timelineservice/lib/*:/home/hduser/hadoop3/share/hadoop/yarn/csi/lib/*:/home/hduser/hadoop3/share/hadoop/yarn/csi/*
-export HIVE_CLASSPATH=/home/hduser/hive/lib/*
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JAVA_HOME}/lib/tools.jar:$(find /home/hduser/hadoop3/share/hadoop/common -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/client -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/hdfs -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/tools/lib -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/mapreduce -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/yarn -type d -o -name '*.jar' | paste -sd ':' -)
+export HIVE_CLASSPATH=$HIVE_CLASSPATH:$(find $HIVE_HOME/lib -type d -o -name '*.jar' | paste -sd ':' -)
 ~~~
 
 3. Re-load the environment.
@@ -79,8 +79,8 @@ export HADOOP_HDFS_HOME=/home/hduser/hadoop3
 export YARN_HOME=/home/hduser/hadoop3
 export HIVE_HOME=/home/hduser/hive
 export HIVE_CONF_DIR=/home/hduser/hive/conf
-export HADOOP_CLASSPATH=/home/hduser/hadoop3/share/hadoop/common/*:/home/hduser/hadoop3/share/hadoop/common/lib/*:/home/hduser/hadoop3/share/hadoop/client/*:/home/hduser/hadoop3/share/hadoop/hdfs/lib/*:/home/hduser/hadoop3/share/hadoop/hdfs/*:/home/hduser/hadoop3/share/hadoop/tools/lib/*:/home/hduser/hadoop3/share/hadoop/mapreduce/*:/home/hduser/hadoop3/share/hadoop/yarn/*:/home/hduser/hadoop3/share/hadoop/yarn/lib/*:/home/hduser/hadoop3/share/hadoop/yarn/timelineservice/*:/home/hduser/hadoop3/share/hadoop/yarn/timelineservice/lib/*:/home/hduser/hadoop3/share/hadoop/yarn/csi/lib/*:/home/hduser/hadoop3/share/hadoop/yarn/csi/*
-export HIVE_CLASSPATH=/home/hduser/hive/lib/*
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JAVA_HOME}/lib/tools.jar:$(find /home/hduser/hadoop3/share/hadoop/common -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/client -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/hdfs -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/tools/lib -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/mapreduce -type d -o -name '*.jar' | paste -sd ':' -):$(find /home/hduser/hadoop3/share/hadoop/yarn -type d -o -name '*.jar' | paste -sd ':' -)
+export HIVE_CLASSPATH=$HIVE_CLASSPATH:$(find $HIVE_HOME/lib -type d -o -name '*.jar' | paste -sd ':' -)
 ~~~
 
 9. Start both DFS and YARN services before create/alter those required Hive directories in the HDFS. 
