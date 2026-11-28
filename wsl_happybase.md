@@ -90,11 +90,11 @@
 ## L3. Creating Tables in HBase [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)](wsl)
 
 1.	Open another session in terminal, login as hduser, and activate the venv. Then, launch the python command-line interpreter
-   ~~~bash
-   hduser@MyPC:~$ cd ~
-   hduser@MyPC:~$ source de-test/de-test-venv/bin/activate
-   (de-test-venv) hduser@MyPC:~$ python
-   ~~~
+    ~~~bash
+    hduser@MyPC:~$ cd ~
+    hduser@MyPC:~$ source de-test/de-test-venv/bin/activate
+    (de-test-venv) hduser@MyPC:~$ python
+    ~~~
 
 2. Create a new HBase table with a single column-family
    ~~~bash
@@ -144,31 +144,32 @@
 
 
 ## L4. Inserting Values into the HBase Table [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)](wsl)
+
 1.	Identify a table instance, i.e. mytable, for data insertion after the required connection
-   ~~~bash
-   >>> c = happybase.Connection(host='localhost', port=9090)
-   >>> t = c.table('mytable') # get a Table instance
-   ~~~
+    ~~~bash
+    >>> c = happybase.Connection(host='localhost', port=9090)
+    >>> t = c.table('mytable') # get a Table instance
+    ~~~
 
 2.	Insert values into mytable cell by cell
-   ~~~bash
-   >>> t.put('k1', {'cf1:c1':'v1'})
-   >>> t.put('k1', {'cf1:c2':'v2'})
-   >>> t.put('k1', {'cf1:c3':'v3'})
-   >>> t.put('k2', {'cf1:c1':'vv1', 'cf1:c2':'vv2', 'cf1:c3':'vv3'})
-   ~~~
+    ~~~bash
+    >>> t.put('k1', {'cf1:c1':'v1'})
+    >>> t.put('k1', {'cf1:c2':'v2'})
+    >>> t.put('k1', {'cf1:c3':'v3'})
+    >>> t.put('k2', {'cf1:c1':'vv1', 'cf1:c2':'vv2', 'cf1:c3':'vv3'})
+    ~~~
 
 3.	Insert values into table with the namespace prefix
-   ~~~bash
-   >>> c = happybase.Connection(port=9090)
-   >>> t3 = c.table('prj_pfx_mytable3')
-   >>> t3.put('rk1', {'cf1:country':'UK'})
-   >>> t3.put('rk1', {'cf1:city':'London'})
-   >>> t3.put('rk1', {'cf1:industry':'Manufacturing'})
-   >>> t3.put('rk1', {'cf2:department':'Production', 'cf2:title':'Senior Manager'})
-   >>> t3.put('rk2', {'cf1:country':'Malaysia', 'cf1:city':'KL', 'cf1:industry':'Software Development', 'cf2:department':'QA', 'cf2:title':'Test Engineer'})
-   ~~~
-   > If you encounter a socket.error: [Errno 32] Broken pipe error, make sure that you have obtained the Table instance. If the error still exists, then kill the Thrift process and re-start it.
+    ~~~bash
+    >>> c = happybase.Connection(port=9090)
+    >>> t3 = c.table('prj_pfx_mytable3')
+    >>> t3.put('rk1', {'cf1:country':'UK'})
+    >>> t3.put('rk1', {'cf1:city':'London'})
+    >>> t3.put('rk1', {'cf1:industry':'Manufacturing'})
+    >>> t3.put('rk1', {'cf2:department':'Production', 'cf2:title':'Senior Manager'})
+    >>> t3.put('rk2', {'cf1:country':'Malaysia', 'cf1:city':'KL', 'cf1:industry':'Software Development', 'cf2:department':'QA', 'cf2:title':'Test Engineer'})
+    ~~~
+    > If you encounter a socket.error: [Errno 32] Broken pipe error, make sure that you have obtained the Table instance. If the error still exists, then kill the Thrift process and re-start it.
 
 
 
@@ -176,85 +177,85 @@
 ## L5. Retrieving Values from the HBase Tables [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)](wsl)
 
 1.	Retrieve values by individual data fields of row-key
-   ~~~bash
-   >>> row = t3.row(b'rk1')
-   >>> print(row[b'cf1:industry'])
-   >>> print(row[b'cf1:country'])
-   >>> print(row[b'cf1:city'])
-   >>> print(row[b'cf2:department'])
-   >>> print(row[b'cf2:title'])
-   >>> row = t3.row(b'rk2')
-   >>> print(row[b'cf1:country'])
-   >>> print(row[b'cf1:city'])
-   >>> print(row[b'cf1:industry'])
-   >>> print(row[b'cf2:department'])
-   >>> print(row[b'cf2:title'])
-   ~~~
+    ~~~bash
+    >>> row = t3.row(b'rk1')
+    >>> print(row[b'cf1:industry'])
+    >>> print(row[b'cf1:country'])
+    >>> print(row[b'cf1:city'])
+    >>> print(row[b'cf2:department'])
+    >>> print(row[b'cf2:title'])
+    >>> row = t3.row(b'rk2')
+    >>> print(row[b'cf1:country'])
+    >>> print(row[b'cf1:city'])
+    >>> print(row[b'cf1:industry'])
+    >>> print(row[b'cf2:department'])
+    >>> print(row[b'cf2:title'])
+    ~~~
 
 2.	Retrieve all the data fields of row-key 'rk2'
-   ~~~bash
-   >>> print("data for row-key 'rk2':\n", row)
-   ~~~
+    ~~~bash
+    >>> print("data for row-key 'rk2':\n", row)
+    ~~~
 
 3.	Process multiple rows
-   ~~~bash
-   >>> m_rows = t3.rows(['rk1', 'rk2'])
-   >>> for r in m_rows:
-   ...     print("data in current row: ", r)
-   ~~~
+    ~~~bash
+    >>> m_rows = t3.rows(['rk1', 'rk2'])
+    >>> for r in m_rows:
+    ...     print("data in current row: ", r)
+    ~~~
 
 4.	Extract the column-families of each row as a dictionary
-   ~~~bash
-   >>> for r in m_rows:
-   ...     r_as_dict = dict(r[1])
-   ...     print("\nr: ", r)
-   ...     print("\tAs dict: ", r_as_dict)
-   ~~~
+    ~~~bash
+    >>> for r in m_rows:
+    ...     r_as_dict = dict(r[1])
+    ...     print("\nr: ", r)
+    ...     print("\tAs dict: ", r_as_dict)
+    ~~~
 
 5.	Extract all the cities from the rows
-   ~~~bash
-   >>> city_list = []
-   >>> for r in m_rows:
-   ...     r_as_dict = dict(r[1])
-   ...     city_list.append(r_as_dict[b'cf1:city'])
-   ...
-   >>> print(city_list)
-   ~~~
+    ~~~bash
+    >>> city_list = []
+    >>> for r in m_rows:
+    ...     r_as_dict = dict(r[1])
+    ...     city_list.append(r_as_dict[b'cf1:city'])
+    ...
+    >>> print(city_list)
+    ~~~
 
 6.	Fine-grained selections - multiple cell retrieval
-   ~~~bash
-   >>> c = happybase.Connection(port=9090)
-   >>> t3 = c.table('prj_pfx_mytable3')
-   >>> row = t3.row(b'rk1', columns=[b'cf1:country', b'cf2:title'])
-   >>> print(row)
-   >>> print(row[b'cf1:country'])
-   >>> print(row[b'cf2:title'])
-   ~~~
+    ~~~bash
+    >>> c = happybase.Connection(port=9090)
+    >>> t3 = c.table('prj_pfx_mytable3')
+    >>> row = t3.row(b'rk1', columns=[b'cf1:country', b'cf2:title'])
+    >>> print(row)
+    >>> print(row[b'cf1:country'])
+    >>> print(row[b'cf2:title'])
+    ~~~
 
 7.	Fine-grained selections - all columns belonging to a column-family
-   ~~~bash
-   >>> c = happybase.Connection(port=9090)
-   >>> t3 = c.table('prj_pfx_mytable3')
-   >>> row = t3.row(b'rk1', columns=[b'cf1'])
-   >>> print(row)
-   ~~~
+    ~~~bash
+    >>> c = happybase.Connection(port=9090)
+    >>> t3 = c.table('prj_pfx_mytable3')
+    >>> row = t3.row(b'rk1', columns=[b'cf1'])
+    >>> print(row)
+    ~~~
 
 8.	Retrieve with timestamps
-   ~~~bash
-   >>> c = happybase.Connection(port=9090)
-   >>> t3 = c.table('prj_pfx_mytable3')
-   >>> row = t3.row(b'rk1', columns=[b'cf1:country'], include_timestamp=True)
-   >>> value, timestamp = row[b'cf1:country']
-   >>> print(value)
-   >>> print(timestamp)
-   ~~~
+    ~~~bash
+    >>> c = happybase.Connection(port=9090)
+    >>> t3 = c.table('prj_pfx_mytable3')
+    >>> row = t3.row(b'rk1', columns=[b'cf1:country'], include_timestamp=True)
+    >>> value, timestamp = row[b'cf1:country']
+    >>> print(value)
+    >>> print(timestamp)
+    ~~~
 
 9.	Retrieve cells based on versions
-   ~~~bash
-   >>> cells = t3.cells(b'rk1', b'cf1:country', versions=3, include_timestamp=True)
-   >>> for value, timestamp in cells:
-   ...  print("Cell data at {}:{}".format(timestamp, value))
-   ~~~
+    ~~~bash
+    >>> cells = t3.cells(b'rk1', b'cf1:country', versions=3, include_timestamp=True)
+    >>> for value, timestamp in cells:
+    ...  print("Cell data at {}:{}".format(timestamp, value))
+    ~~~
 
 10. Iterating through rows and extracting data fields
     ~~~bash
@@ -304,11 +305,11 @@
 
 ## L6. Deleting Values from the HBase Tables [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)](wsl)
 1.	Delete a row
-   ~~~bash
-   >>> t3.delete(b'rk2')
-   ~~~
+    ~~~bash
+    >>> t3.delete(b'rk2')
+    ~~~
 
 2.	Delete specific cells of a row
-   ~~~bash
-   >>> t3.delete(b'rk1', columns=[b'cf1:city', b'cf2:title'])
-   ~~~
+    ~~~bash
+    >>> t3.delete(b'rk1', columns=[b'cf1:city', b'cf2:title'])
+    ~~~
