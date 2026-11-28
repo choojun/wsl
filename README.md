@@ -36,71 +36,74 @@ Assuming you have successfully set up all the required framework and software li
 
 > [!NOTE]
 > **Session 1**
-~~~bash
-tarumt@MyPC:~$ su - hduser
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ sudo service ssh start
-hduser@MyPC:~$ sudo service ssh status
-hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
-hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
-hduser@MyPC:~$ jps
-~~~
-> Six (6) active services can be observed, including jps, **DataNode**, **NameNode**, **SecondaryNameNode**, **NodeManager**, **ResourceManager**. <br>
-> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> **HDFS web UI** - http://localhost:9870 <br>
-> It inspects the HDFS's storage capacity, DataNode health, and block replication status, allowing administrators to browse the HDFS directory namespace and view file system logs via the HDFS NameNode Interface. <br>
-> **YARN web UI** - http://localhost:8088/ <br>
-> It  tracks cluster compute metrics like CPU and memory allocation, monitors the status of worker NodeManagers, and manages running or completed processing applications (Spark or MapReduce) through the YARN ResourceManager Interface.
 
-~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ KAFKA_CLUSTER_ID="$(~/kafka/bin/kafka-storage.sh random-uuid)"
-hduser@MyPC:~$ ~/kafka/bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c ~/kafka/config/server.properties
-hduser@MyPC:~$ ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
-~~~
-> Start a new session, i.e. known as Session 2, to issue the command jps.
-> Seven (7) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, **kafka**. <br>
+1. Start the HDFS and YARN services.
+   ~~~bash
+   tarumt@MyPC:~$ su - hduser
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~$ sudo service ssh start
+   hduser@MyPC:~$ sudo service ssh status
+   hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
+   hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
+   hduser@MyPC:~$ jps
+   ~~~
+   > Six (6) active services can be observed, including jps, **DataNode**, **NameNode**, **SecondaryNameNode**, **NodeManager**, **ResourceManager**. <br>
+   > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
+   > **HDFS web UI** - http://localhost:9870 <br>
+   > It inspects the HDFS's storage capacity, DataNode health, and block replication status, allowing administrators to browse the HDFS directory namespace and view file system logs via the HDFS NameNode Interface. <br>
+   > **YARN web UI** - http://localhost:8088/ <br>
+   > It  tracks cluster compute metrics like CPU and memory allocation, monitors the status of worker NodeManagers, and manages running or completed processing applications (Spark or MapReduce) through the YARN ResourceManager Interface.
+
+2. Start the Kafa service.
+   ~~~bash
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~$ KAFKA_CLUSTER_ID="$(~/kafka/bin/kafka-storage.sh random-uuid)"
+   hduser@MyPC:~$ ~/kafka/bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c ~/kafka/config/server.properties
+   hduser@MyPC:~$ ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
+   ~~~
+   > Start a new session, i.e. known as Session 2, to issue the command jps.
+   > Seven (7) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, **kafka**. <br>
 
 > [!NOTE]
 > **Session 2**
 
-Start the ZooKeeper, Hbase and Thrift services.
-~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh start zookeeper
-hduser@MyPC:~$ ~/hbase/bin/start-hbase.sh
-hduser@MyPC:~$ ~/hbase/bin/hbase thrift start -p 9090 &
-hduser@MyPC:~$ jps
-~~~
-> Eleven (11) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, **HQuorumPeer**, **HMaster**, **HRegionServer**, **ThriftServer**. <br>
-> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> **HBase web UI** - http://localhost:16010 <br>
-> It monitors infrastructure health, region distribution, server loads, compaction queues, and low-latency read/write performance across Master and RegionServers.
+3. Start the ZooKeeper, Hbase and Thrift services.
+   ~~~bash
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh start zookeeper
+   hduser@MyPC:~$ ~/hbase/bin/start-hbase.sh
+   hduser@MyPC:~$ ~/hbase/bin/hbase thrift start -p 9090 &
+   hduser@MyPC:~$ jps
+   ~~~
+   > Eleven (11) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, **HQuorumPeer**, **HMaster**, **HRegionServer**, **ThriftServer**. <br>
+   > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
+   > **HBase web UI** - http://localhost:16010 <br>
+   > It monitors infrastructure health, region distribution, server loads, compaction queues, and low-latency read/write performance across Master and RegionServers.
 
-Start the YARN Timeline Server and HTTPD services.
-~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ ~/hadoop3/bin/yarn --daemon start timelineserver
-hduser@MyPC:~$ jps
-hduser@MyPC:~$ sudo systemctl start apache2
-hduser@MyPC:~$ sudo systemctl status apache2
-~~~
-> Twelve (12) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, HQuorumPeer, HMaster, HRegionServer, ThriftServer, **ApplicationHistoryServer**. <br>
-> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> **Tez web UI** - http://localhost/tez-ui/ <br>
-> It visualises [Directed Acyclic Graphs (DAGs)](https://en.wikipedia.org/wiki/Directed_acyclic_graph), vertices, tasks, data transfer edges, and resource bottlenecks for Tez jobs.
+4. Start the YARN Timeline Server and HTTPD services.
+   ~~~bash
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~$ ~/hadoop3/bin/yarn --daemon start timelineserver
+   hduser@MyPC:~$ jps
+   hduser@MyPC:~$ sudo systemctl start apache2
+   hduser@MyPC:~$ sudo systemctl status apache2
+   ~~~
+   > Twelve (12) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, HQuorumPeer, HMaster, HRegionServer, ThriftServer, **ApplicationHistoryServer**. <br>
+   > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
+   > **Tez web UI** - http://localhost/tez-ui/ <br>
+   > It visualises [Directed Acyclic Graphs (DAGs)](https://en.wikipedia.org/wiki/Directed_acyclic_graph), vertices, tasks, data transfer edges, and resource bottlenecks for Tez jobs.
 
-Start the HiveServer2
-~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~/hive$ ~/hive/bin/hiveserver2
-hduser@MyPC:~$ jps
-~~~
-> Start a new session, i.e. known as Session 3, to issue the command jps. You should start your practical exercises in the new Section 3. <br>
-> Thirteen (13) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, HQuorumPeer, HMaster, HRegionServer, ThriftServer, ApplicationHistoryServer, **RunJar**. <br>
-> <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
-> **HiveServer2 web UI** - http://localhost:10002 <br>
-> It tracks client connections (JDBC/Beeline), session handles, active/completed SQL queries, and execution plans at the Hive service level.
+5. Start the HiveServer2
+   ~~~bash
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~/hive$ ~/hive/bin/hiveserver2
+   hduser@MyPC:~$ jps
+   ~~~
+   > Start a new session, i.e. known as Session 3, to issue the command jps. You should start your practical exercises in the new Section 3. <br>
+   > Thirteen (13) active services can be observed, including jps, DataNode, NameNode, SecondaryNameNode, NodeManager, ResourceManager, kafka, HQuorumPeer, HMaster, HRegionServer, ThriftServer, ApplicationHistoryServer, **RunJar**. <br>
+   > <img width="28" height="25" alt="o5" src="https://github.com/user-attachments/assets/0ef39d71-d3a0-4088-99d1-0d2861a016df" /> Self-check: <br>
+   > **HiveServer2 web UI** - http://localhost:10002 <br>
+   > It tracks client connections (JDBC/Beeline), session handles, active/completed SQL queries, and execution plans at the Hive service level.
 
 
 
@@ -111,64 +114,65 @@ Assuming you have successfully set up all the required framework and software li
 > [!NOTE]
 > **Session 2**
 
-Use Ctrl-c to stop HiveServer2 in Section 2.
-~~~bash
-hduser@MyPC:~$ jps
-~~~
-> In Section 2, you will observe that the **RunJar** service has terminated after this step. There are 12 other services running in the background, including jps.
+1. Use Ctrl-c to stop HiveServer2 in Section 2.
+   ~~~bash
+   hduser@MyPC:~$ jps
+   ~~~
+   > In Section 2, you will observe that the **RunJar** service has terminated after this step. There are 12 other services running in the background, including jps.
 
-Stop the YARN Timeline Server and HTTPD services in Section 2.
-~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ sudo systemctl stop apache2
-hduser@MyPC:~$ sudo systemctl status apache2
-hduser@MyPC:~$ ~/hadoop3/bin/yarn --daemon stop timelineserver
-hduser@MyPC:~$ jps
-~~~
-> In Section 2, you will observe that the **ApplicationHistoryServer** service has terminated after this step. There are 11 other services running in the background, including jps.
+2. Stop the YARN Timeline Server and HTTPD services in Section 2.
+   ~~~bash
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~$ sudo systemctl stop apache2
+   hduser@MyPC:~$ sudo systemctl status apache2
+   hduser@MyPC:~$ ~/hadoop3/bin/yarn --daemon stop timelineserver
+   hduser@MyPC:~$ jps
+   ~~~
+   > In Section 2, you will observe that the **ApplicationHistoryServer** service has terminated after this step. There are 11 other services running in the background, including jps.
 
-Continue to stop the Thrift service using the identified pid in Section 2.
-~~~bash
-hduser@MyPC:~$ ps -aux | grep 9090
-hduser    9441  1.5  3.1 2928716 152960 pts/2  Sl   07:46   0:05
-hduser@MyPC:~$ kill 9441
-hduser@MyPC:~$ jps
-~~~
-> In Section 2, you will observe that the **ThriftServer** service has terminated after this step. There are 10 other services running in the background, including jps.
+3. Continue to stop the Thrift service using the identified pid in Section 2.
+   ~~~bash
+   hduser@MyPC:~$ ps -aux | grep 9090
+   hduser    9441  1.5  3.1 2928716 152960 pts/2  Sl   07:46   0:05
+   hduser@MyPC:~$ kill 9441
+   hduser@MyPC:~$ jps
+   ~~~
+   > In Section 2, you will observe that the **ThriftServer** service has terminated after this step. There are 10 other services running in the background, including jps.
 
-Continue to stop the Hbase and ZooKeeper services in Section 2.
-~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ ~/hbase/bin/stop-hbase.sh
-hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh stop zookeeper
-hduser@MyPC:~$ jps
-~~~
-> In Section 2, you will observe that the **HMaster**, **HRegionServer**, **HQuorumPeer** services have terminated after this step. There are 7 other services running in the background, including jps.
+4. Continue to stop the Hbase and ZooKeeper services in Section 2.
+   ~~~bash
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~$ ~/hbase/bin/stop-hbase.sh
+   hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh stop zookeeper
+   hduser@MyPC:~$ jps
+   ~~~
+   > In Section 2, you will observe that the **HMaster**, **HRegionServer**, **HQuorumPeer** services have terminated after this step. There are 7 other services running in the background, including jps.
 
 > [!NOTE]
 > **Session 1**
-Use Ctrl-c to stop Kafka in Section 1.
-~~~bash
-hduser@MyPC:~$ jps
-~~~
-> Optionally, use the following command to stop Kafka in Session 2.
-> ~~~bash
-> hduser@MyPC:~$ cd ~
-> hduser@MyPC:~$ ~/kafka/bin/kafka-server-stop.sh
-> hduser@MyPC:~$ jps
-> ~~~
-> In Section 1, you will observe that the **Kafka** service has terminated after this step. There are 6 other services running in the background, including jps.
+
+5. Use Ctrl-c to stop Kafka in Section 1.
+   ~~~bash
+   hduser@MyPC:~$ jps
+   ~~~
+   > Optionally, use the following command to stop Kafka in Session 2.
+   > ~~~bash
+   > hduser@MyPC:~$ cd ~
+   > hduser@MyPC:~$ ~/kafka/bin/kafka-server-stop.sh
+   > hduser@MyPC:~$ jps
+   > ~~~
+   > In Section 1, you will observe that the **Kafka** service has terminated after this step. There are 6 other services running in the background, including jps.
 
 
-Continue to stop the YARN and HDFS services in Section 1.
-~~~bash
-hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ ~/hadoop3/sbin/stop-yarn.sh
-hduser@MyPC:~$ ~/hadoop3/sbin/stop-dfs.sh
-hduser@MyPC:~$ jps
-~~~
-> In Section 1, you will observe that the **NodeManager**, **ResourceManager**, **DataNode**, **NameNode**, **SecondaryNameNode** services have terminated after this step. There is 1 remaining background service running, namely jps. <br>
-> Congratulations! You have terminated all services. You may now proceed to exit all active sections.
+6. Continue to stop the YARN and HDFS services in Section 1.
+   ~~~bash
+   hduser@MyPC:~$ cd ~
+   hduser@MyPC:~$ ~/hadoop3/sbin/stop-yarn.sh
+   hduser@MyPC:~$ ~/hadoop3/sbin/stop-dfs.sh
+   hduser@MyPC:~$ jps
+   ~~~
+   > In Section 1, you will observe that the **NodeManager**, **ResourceManager**, **DataNode**, **NameNode**, **SecondaryNameNode** services have terminated after this step. There is 1 remaining background service running, namely jps. <br>
+   > Congratulations! You have terminated all services. You may now proceed to exit all active sections.
 -----------------------------------------------------------
 
 
