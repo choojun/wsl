@@ -28,7 +28,7 @@
 3. Start up the **Thrift** service at port 9090 to run at the background
    ~~~bash
    hduser@MyPC:~$ cd ~
-   hduser@MyPC:~$ hbase thrift start -p 9090 &
+   hduser@MyPC:~$ ~/hbase/bin/hbase thrift start -p 9090 &
    ~~~
    > Find the pid for the Thrift service, and a total of eleven (11) services can be observed eventually.
    > 
