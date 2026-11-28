@@ -123,7 +123,7 @@ xx
 xx export HADOOP_CLASSPATH=/usr/lib/jvm/java-17-openjdk-amd64/lib/tools.jar:/home/hduser/hive/lib/*:/home/hduser/hadoop3/share/hadoop/common/*:/home/hduser/hadoop3/share/hadoop/common/lib/*:/home/hduser/hadoop3/share/hadoop/client/*
 ~~~
 
-12. Find the targeted jar file. Delete the log4j-slf4j-impl-2.6.2.jar file if found multiple copies (optional)
+12. Find the targeted jar file/s. Delete the log4j-slf4j-impl-x.x.x.jar file if found multiple copies (optional)
 ~~~bash
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ find . -name log4j-slf4j-impl-*.jar
