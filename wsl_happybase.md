@@ -313,3 +313,6 @@
     ~~~bash
     >>> t3.delete(b'rk1', columns=[b'cf1:city', b'cf2:title'])
     ~~~
+
+
+## Remember to stop all services at the end of every practical [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
