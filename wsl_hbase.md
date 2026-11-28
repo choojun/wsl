@@ -161,8 +161,9 @@ HBase has many features which supports both linear and modular scaling. HBase cl
    ~~~
    > Shutdown can take a moment to complete. If you are running a distributed operation, be sure to wait until HBase has shut down completely before stopping the Hadoop daemons.
    >
-   > [!TIP]
-   > Attention: You may choose to clear all the HBase data (e.g. due to data corruption), after stopped both **HMaster** and **HRegionServer**, using the following commands.
+   
+   > [!CAUTION]
+   > You may choose to clear all the HBase data (e.g. due to data corruption), after stopped both **HMaster** and **HRegionServer**, using the following commands.
    ~~~bash
    hduser@MyPC:~$ cd ~
    hduser@MyPC:~$ hdfs dfs -ls /
