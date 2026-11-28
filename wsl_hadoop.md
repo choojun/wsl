@@ -326,7 +326,7 @@ Run the following commands from Ubuntu with user **hduser**
    export HADOOP_OPTS="$HADOOP_OPTS --add-opens=java.base/java.util.concurrent=ALL-UNNAMED"
 
    export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-   export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
+   export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JAVA_HOME}/lib/tools.jar
    export HADOOP_LOG_DIR=${HADOOP_HOME}/logs
    ~~~
    > Remember to save the edited file by ctrl-x.
