@@ -257,25 +257,20 @@ export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-j-26.10.0.jar
 > **Tips**: Note that a total of eleven (11) services can be observed eventually.
 > ~~~bash
 > hduser@MyPC:~$ sudo systemctl status mysql
-> hduser@MyPC:~$
-> hduser@MyPC:~$ cd ~/hadoop3
-> hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
-> hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
-> hduser@MyPC:~/hadoop3$ jps
-> hduser@MyPC:~/hadoop3$ cd ~
-> hduser@MyPC:~$ cd ~/kafka
-> hduser@MyPC:~/kafka$ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
-> hduser@MyPC:~/kafka$ bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
-> hduser@MyPC:~/kafka$ bin/kafka-server-start.sh config/server.properties
-> hduser@MyPC:~/kafka$ jps
-> hduser@MyPC:~/kafka$ cd ~
-> hduser@MyPC:~$ cd ~/hbase
-> hduser@MyPC:~/hbase$ ~/hbase/bin/hbase-daemon.sh start zookeeper
-> hduser@MyPC:~/hbase$ ~/hbase/bin/start-hbase.sh
-> hduser@MyPC:~/hbase$ jps
-> hduser@MyPC:~/hbase$ bin/hbase thrift start -p 9090 &
-> hduser@MyPC:~/hbase$ jps
-> hduser@MyPC:~/hbase$ cd ~
+> hduser@MyPC:~$ cd ~
+> hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
+> hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
+> hduser@MyPC:~$ jps
+> hduser@MyPC:~$ cd ~
+> hduser@MyPC:~$ KAFKA_CLUSTER_ID="$(~/kafka/bin/kafka-storage.sh random-uuid)"
+> hduser@MyPC:~$ ~/kafka/bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c ~/kafka/config/server.properties
+> hduser@MyPC:~$ ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
+> hduser@MyPC:~$ jps
+> hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh start zookeeper
+> hduser@MyPC:~$ ~/hbase/bin/start-hbase.sh
+> hduser@MyPC:~$ jps
+> hduser@MyPC:~$  ~/hbase/bin/hbase thrift start -p 9090 &
+> hduser@MyPC:~$ jps
 > hduser@MyPC:~$
 > ~~~
 
