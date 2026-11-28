@@ -39,7 +39,7 @@ hduser@MyPC:~$ source de-test/de-test-venv/bin/activate
 ![3dscatter](https://github.com/choojun/choojun.github.io/assets/6356054/b439d6aa-4164-4821-88c4-7a5f8fc49b6b)
 
 
-
+## Remember to stop all services at the end of every practical [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
 
 
 
