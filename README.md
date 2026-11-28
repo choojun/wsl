@@ -32,7 +32,7 @@ If you are using Apple machines (MacBooks and iMacs with Intel/Apple Silicon pro
 
 
 ## Todo 1: To start all services ![exclamation_mark](https://github.com/choojun/choojun.github.io/assets/6356054/dd0eeedb-feac-476d-a69c-6a0aa31d4159)
-Assuming you have successfully set up all the required framework and software listed above, run the following commands on your setup or restored WSL distro, e.g. at the beginning of every practical.
+Assuming you have successfully set up all the required framework and software listed above, run the following commands on your setup or restored WSL distro, e.g. **at the beginning of every practical**.
 
 > [!NOTE]
 > **Session 1**
@@ -109,7 +109,7 @@ Assuming you have successfully set up all the required framework and software li
 
 
 ## Todo 2: To stop all services ![exclamation_mark](https://github.com/choojun/choojun.github.io/assets/6356054/dd0eeedb-feac-476d-a69c-6a0aa31d4159)
-Assuming you have successfully set up all the required framework and software listed above, run the following commands on your setup or restored WSL distro, e.g. at the end of every practical.
+Assuming you have successfully set up all the required framework and software listed above, run the following commands on your setup or restored WSL distro, e.g. **at the end of every practical**.
 
 > [!NOTE]
 > **Session 2**
