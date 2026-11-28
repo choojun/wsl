@@ -86,22 +86,22 @@ export HIVE_CLASSPATH=/home/hduser/hive/lib/*
 9. Start both DFS and YARN services before create/alter those required Hive directories in the HDFS. 
 ~~~bash
 hduser@MyPC:~$ jps
-hduser@MyPC:~$ cd ~/hadoop3
-hduser@MyPC:~/hadoop3$ sbin/start-dfs.sh
-hduser@MyPC:~/hadoop3$ sbin/start-yarn.sh
-hduser@MyPC:~/hadoop3$ jps
-hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir /tmp
-hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir /tmp/hduser
-hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir /user
-hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir /user/hduser
-hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir /user/hduser/warehouse
-hduser@MyPC:~/hadoop3$ hdfs dfs -mkdir /user/hduser/lib
-hduser@MyPC:~/hadoop3$ hdfs dfs -chmod g+w /tmp
-hduser@MyPC:~/hadoop3$ hdfs dfs -chmod g+w /tmp/hduser
-hduser@MyPC:~/hadoop3$ hdfs dfs -chmod 777 /user
-hduser@MyPC:~/hadoop3$ hdfs dfs -chmod g+w /user/hduser
-hduser@MyPC:~/hadoop3$ hdfs dfs -chmod -R 775 /user/hduser/warehouse
-hduser@MyPC:~/hadoop3$ hdfs dfs -chmod 777 /user/hduser/lib
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ ~/hadoop3/sbin/start-dfs.sh
+hduser@MyPC:~$ ~/hadoop3/sbin/start-yarn.sh
+hduser@MyPC:~$ jps
+hduser@MyPC:~$ hdfs dfs -mkdir /tmp
+hduser@MyPC:~$ hdfs dfs -mkdir /tmp/hduser
+hduser@MyPC:~$ hdfs dfs -mkdir /user
+hduser@MyPC:~$ hdfs dfs -mkdir /user/hduser
+hduser@MyPC:~$ hdfs dfs -mkdir /user/hduser/warehouse
+hduser@MyPC:~$ hdfs dfs -mkdir /user/hduser/lib
+hduser@MyPC:~$ hdfs dfs -chmod g+w /tmp
+hduser@MyPC:~$ hdfs dfs -chmod g+w /tmp/hduser
+hduser@MyPC:~$ hdfs dfs -chmod 777 /user
+hduser@MyPC:~$ hdfs dfs -chmod g+w /user/hduser
+hduser@MyPC:~$ hdfs dfs -chmod -R 775 /user/hduser/warehouse
+hduser@MyPC:~$ hdfs dfs -chmod 777 /user/hduser/lib
 ~~~
 
 10. Change mode of access for hadoop's data and namenode, which are created in [Section E](wsl_hdoop.md). **Attention**: Stop both DFS and YARN services after this step.
@@ -109,15 +109,18 @@ hduser@MyPC:~/hadoop3$ hdfs dfs -chmod 777 /user/hduser/lib
 hduser@MyPC:~$ chmod -R g+w /home/hduser/hadoopData
 hduser@MyPC:~$ chmod -R g+w /home/hduser/hadoopName
 hduser@MyPC:~$ jps
-hduser@MyPC:~$ cd ~/hadoop3
-hduser@MyPC:~/hadoop3$ sbin/stop-yarn.sh
-hduser@MyPC:~/hadoop3$ sbin/stop-dfs.sh
-hduser@MyPC:~/hadoop3$ jps
+hduser@MyPC:~$ cd ~
+hduser@MyPC:~$ ~/hadoop3/sbin/stop-yarn.sh
+hduser@MyPC:~$ ~/hadoop3/sbin/stop-dfs.sh
+hduser@MyPC:~$ jps
 ~~~
 
 11. Edit the ~/hadoop3/etc/hadoop/hadoop-env.sh file by including additional paths into the HADOOP_CLASSPATH as follows
 ~~~bash
-export HADOOP_CLASSPATH=/usr/lib/jvm/java-17-openjdk-amd64/lib/tools.jar:/home/hduser/hive/lib/*:/home/hduser/hadoop3/share/hadoop/common/*:/home/hduser/hadoop3/share/hadoop/common/lib/*:/home/hduser/hadoop3/share/hadoop/client/*
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$(find /home/hduser/hive/lib -type d -o -name '*.jar' | paste -sd ':' -)
+xx
+xx
+xx export HADOOP_CLASSPATH=/usr/lib/jvm/java-17-openjdk-amd64/lib/tools.jar:/home/hduser/hive/lib/*:/home/hduser/hadoop3/share/hadoop/common/*:/home/hduser/hadoop3/share/hadoop/common/lib/*:/home/hduser/hadoop3/share/hadoop/client/*
 ~~~
 
 12. Find the targeted jar file. Delete the log4j-slf4j-impl-2.6.2.jar file if found multiple copies (optional)
@@ -133,8 +136,7 @@ hduser@MyPC:~$ rm ~/hive/lib/log4j-slf4j-impl-2.24.3.jar
 1. Install MySQL Server, and verify that the service is up and running:
 ~~~bash
 hduser@MyPC:~$ cd ~
-hduser@MyPC:~$ sudo apt update
-hduser@MyPC:~$ sudo apt install mysql-server
+hduser@MyPC:~$ sudo apt update && sudo apt install mysql-server
 hduser@MyPC:~$ sudo systemctl status mysql
 ~~~
 > Exit the status checking using Ctrl-c.
