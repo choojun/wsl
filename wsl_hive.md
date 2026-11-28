@@ -128,6 +128,7 @@ xx export HADOOP_CLASSPATH=/usr/lib/jvm/java-17-openjdk-amd64/lib/tools.jar:/hom
 hduser@MyPC:~$ cd ~
 hduser@MyPC:~$ find . -name log4j-slf4j-impl-*.jar
 hduser@MyPC:~$ rm ~/hive/lib/log4j-slf4j-impl-2.24.3.jar
+hduser@MyPC:~$ rm ~/hbase/lib/client-facing-thirdparty/log4j-slf4j-impl-2.25.4.jar
 ~~~
 > We delete the file log4j-slf4j-impl-2.24.3.jar because the similar file is also presented in the Hadoop directory, and it gives error to us occasionally
 
