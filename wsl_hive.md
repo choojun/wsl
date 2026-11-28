@@ -270,7 +270,7 @@ export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-j-26.10.0.jar
 > hduser@MyPC:~$ ~/hbase/bin/hbase-daemon.sh start zookeeper
 > hduser@MyPC:~$ ~/hbase/bin/start-hbase.sh
 > hduser@MyPC:~$ jps
-> hduser@MyPC:~$  ~/hbase/bin/hbase thrift start -p 9090 &
+> hduser@MyPC:~$ ~/hbase/bin/hbase thrift start -p 9090 &
 > hduser@MyPC:~$ jps
 > hduser@MyPC:~$
 > ~~~
