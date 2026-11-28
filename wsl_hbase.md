@@ -269,17 +269,15 @@ HBase has many features which supports both linear and modular scaling. HBase cl
 
 10. Import the necessary classes.
     ~~~bash
-    hbase> import org.apache.hadoop.hbase.util.Bytes
-    hbase> import org.apache.hadoop.hbase.filter.SingleColumnValueFilter
-    hbase> import org.apache.hadoop.hbase.filter.BinaryComparator
-    hbase> import org.apache.hadoop.hbase.filter.CompareFilter
+    hbase> java_import org.apache.hadoop.hbase.CompareOperator
+    hbase> java_import org.apache.hadoop.hbase.filter.SingleColumnValueFilter
+    hbase> java_import org.apache.hadoop.hbase.filter.BinaryComparator
+    hbase> java_import org.apache.hadoop.hbase.util.Bytes
+    hbase> java_import org.apache.hadoop.hbase.filter.CompareFilter
     ~~~
     > Create a filter that limits the results to rows where the statistics:like counter column value is less than or equal to 10.
     ~~~
-    likeFilter = SingleColumnValueFilter.new(Bytes.toBytes('statistics'),
-    Bytes.toBytes('like'),
-    CompareFilter::CompareOp.valueOf('GREATER_OR_EQUAL'),
-    BinaryComparator.new(Bytes.toBytes(10)))
+    likeFilter = SingleColumnValueFilter.new( Bytes.toBytes('statistics'), Bytes.toBytes('like'), CompareOperator::GREATER_OR_EQUAL, BinaryComparator.new(Bytes.toBytes(10.to_java(:int))) )
     ~~~
     > Set a flag for the filter to skip any rows without a value in this column.
     ~~~bash
