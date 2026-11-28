@@ -579,3 +579,4 @@ Python virtual environments (venv) create a self-contained and isolated environm
 
 5. Choose the created venv, and open up the Practical3c_SparkSQL_and_DataFrames.ipynb notebook. Do the Spark SQL exercises there. Suppose that you have learned some essential codes in G4 to G8 before attempting the G9.
 
+## Remember to stop all services at the end of every practical [![home](https://github.com/choojun/choojun.github.io/assets/6356054/947da4b4-f259-4b82-8961-07ca48b2811a)]()
