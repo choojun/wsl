@@ -212,11 +212,6 @@ mysql> EXIT;
       <description>Top level directory where operation logs are stored if logging functionality is >
     </property>
     <property>
-      <name>hive.downloaded.resources.dir</name>
-      <value>/tmp/hive/${hive.session.id}_resources</value>
-      <description>Temporary local directory for added resources in the remote file system</description>
-    </property>
-    <property>
       <name>hive.external.table.purge.default</name>
       <value>true</value>
     </property>
